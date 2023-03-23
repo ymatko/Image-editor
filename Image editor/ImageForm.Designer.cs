@@ -63,6 +63,7 @@
             this.Controls.Add(this.ImageInfoLabel);
             this.Name = "ImageForm";
             this.Text = "ImageForm";
+            this.Activated += new System.EventHandler(this.ImageForm_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

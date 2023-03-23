@@ -17,15 +17,19 @@ namespace Image_editor
 {
     public partial class ImageForm : Form
     {
+        Image<Bgr, byte> InputImage;
         public ImageForm(string fileName)
         {
-            Image<Bgr, Byte>  InputImage = new Image<Bgr, byte>(fileName);
             InitializeComponent();
+            InputImage = new Image<Bgr, byte>(fileName);
             imageBox1.Image = InputImage;
             this.Size = new Size(InputImage.Width + 16, InputImage.Height + 55);
             ImageInfoLabel.Text = InputImage.Width + " x " + InputImage.Height;
-            //this.Width = imageBox1.Width - 56;
-            // this.Height = imageBox1.Height + 22;
+            this.Activated += ImageForm_Activated;
+        }
+        private void ImageForm_Activated(object sender, EventArgs e)
+        {
+            ThisImage.Image = InputImage;
         }
     }
 }

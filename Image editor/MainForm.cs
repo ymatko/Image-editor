@@ -30,5 +30,15 @@ namespace Image_editor
                 await Task.Run(() => newImage.ShowDialog());
             }
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
+            if (DialogResult.OK == saveFileDialog.ShowDialog())
+            {
+                ThisImage.Image.Save(saveFileDialog.FileName);
+            }
+        }
     }
 }
