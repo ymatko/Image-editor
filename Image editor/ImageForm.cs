@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,8 +19,13 @@ namespace Image_editor
     {
         public ImageForm(string fileName)
         {
+            Image<Bgr, Byte>  InputImage = new Image<Bgr, byte>(fileName);
             InitializeComponent();
-            pictureBox1.Image = new Bitmap(fileName);
+            imageBox1.Image = InputImage;
+            this.Size = new Size(InputImage.Width + 16, InputImage.Height + 55);
+            ImageInfoLabel.Text = InputImage.Width + " x " + InputImage.Height;
+            //this.Width = imageBox1.Width - 56;
+            // this.Height = imageBox1.Height + 22;
         }
     }
 }

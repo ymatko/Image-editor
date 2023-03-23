@@ -15,3 +15,12 @@ C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.exe
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.pdb
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.MainForm.resources
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.ImageForm.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\cvextern.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\opencv_videoio_ffmpeg460.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\concrt140.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\msvcp140.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\msvcp140_1.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\msvcp140_2.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\msvcp140_atomic_wait.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\msvcp140_codecvt_ids.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\vcruntime140.dll
