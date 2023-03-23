@@ -1,0 +1,17 @@
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\Image editor.exe.config
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\Image editor.exe
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\Image editor.pdb
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\Emgu.CV.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\Emgu.CV.Bitmap.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\Emgu.CV.Platform.NetFramework.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.Drawing.Common.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.csproj.AssemblyReference.cache
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.csproj.SuggestedBindingRedirects.cache
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.Properties.Resources.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.csproj.GenerateResource.cache
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.csproj.CoreCompileInputs.cache
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.csproj.CopyComplete
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.exe
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.pdb
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.MainForm.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.ImageForm.resources
