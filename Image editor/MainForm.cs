@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Image_editor
 {
@@ -21,10 +22,13 @@ namespace Image_editor
             InitializeComponent();
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ImageForm imageForm = new ImageForm(openFileDialog1);
-
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                var newImage = new ImageForm(openFileDialog1.FileName);
+                await Task.Run(() => newImage.ShowDialog());
+            }
         }
     }
 }

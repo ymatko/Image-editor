@@ -1,5 +1,6 @@
 ﻿using Emgu.CV;
 using Emgu.CV.Structure;
+using Emgu.CV.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,19 +16,10 @@ namespace Image_editor
 {
     public partial class ImageForm : Form
     {
-        public ImageForm(OpenFileDialog ofd)
+        public ImageForm(string fileName)
         {
-            try
-            {
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    ImageInfoLabel.Text = "fdgdf";
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            InitializeComponent();
+            pictureBox1.Image = new Bitmap(fileName);
         }
     }
 }
