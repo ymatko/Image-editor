@@ -18,18 +18,18 @@ namespace Image_editor
     public partial class ImageForm : Form
     {
         Image<Bgr, byte> InputImage;
-        public ImageForm(string fileName)
+        public ImageForm(OpenFileDialog openFileDialog)
         {
             InitializeComponent();
-            InputImage = new Image<Bgr, byte>(fileName);
+            InputImage = new Image<Bgr, byte>(openFileDialog.FileName);
             imageBox1.Image = InputImage;
             this.Size = new Size(InputImage.Width + 16, InputImage.Height + 55);
-            ImageInfoLabel.Text = InputImage.Width + " x " + InputImage.Height;
+            ImageInfoLabel.Text = InputImage.Width + " x " + InputImage.Height + " " + openFileDialog.SafeFileName;
             this.Activated += ImageForm_Activated;
         }
         private void ImageForm_Activated(object sender, EventArgs e)
         {
-            ThisImage.Image = InputImage;
+            ThisImage.SelectedImage = InputImage;
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Image_editor
         {
             if(openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                var newImage = new ImageForm(openFileDialog1.FileName);
+                var newImage = new ImageForm(openFileDialog1);
                 await Task.Run(() => newImage.ShowDialog());
             }
         }
@@ -37,8 +37,14 @@ namespace Image_editor
             saveFileDialog.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
             if (DialogResult.OK == saveFileDialog.ShowDialog())
             {
-                ThisImage.Image.Save(saveFileDialog.FileName);
+                ThisImage.SelectedImage.Save(saveFileDialog.FileName);
             }
+        }
+
+        private void tableLUTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var tableLUT = new TableLUT();
+            tableLUT.ShowDialog();
         }
     }
 }

@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TableLUT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableLUT.Designer.cs">
+      <DependentUpon>TableLUT.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThisImage.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -78,6 +84,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TableLUT.resx">
+      <DependentUpon>TableLUT.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

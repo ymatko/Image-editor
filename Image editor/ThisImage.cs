@@ -12,6 +12,6 @@ namespace Image_editor
 {
     internal static class ThisImage
     {
-        internal static Image<Bgr, Byte> Image { get; set; }
+        internal static Image<Bgr, Byte> SelectedImage { get; set; }
     }
 }
