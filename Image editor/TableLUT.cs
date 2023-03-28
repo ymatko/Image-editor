@@ -15,9 +15,13 @@ namespace Image_editor
         public TableLUT()
         {
             InitializeComponent();
-            for (int i = 0; i < 257; i++)
+            var selectedImage = ImageStatic.SelectedImage;
+            var image = new Image(selectedImage);
+            image.CalculateHistogram();
+            this.Text = $"Table LUT";
+            for (int i = 0; i < 256; i++)
             {
-                string[] row = new string[] {$"{i}", "-"};
+                string[] row = new string[] { $"{i}", $"{ image.red[i] }", $"{image.green[i]}", $"{image.blue[i]}" };
                 TableLUTView.Rows.Add(row);
             }
         }

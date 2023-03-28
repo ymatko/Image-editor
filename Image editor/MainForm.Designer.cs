@@ -34,11 +34,12 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toBlackAndWhiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.tableLUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Snow;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
@@ -55,7 +57,7 @@
             this.infoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(484, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(434, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -91,9 +93,17 @@
             // 
             // imageToolStripMenuItem
             // 
+            this.imageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toBlackAndWhiteToolStripMenuItem});
             this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
             this.imageToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
             this.imageToolStripMenuItem.Text = "Image";
+            // 
+            // toBlackAndWhiteToolStripMenuItem
+            // 
+            this.toBlackAndWhiteToolStripMenuItem.Name = "toBlackAndWhiteToolStripMenuItem";
+            this.toBlackAndWhiteToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.toBlackAndWhiteToolStripMenuItem.Text = "To black and white";
             // 
             // processToolStripMenuItem
             // 
@@ -109,6 +119,13 @@
             this.analyzeToolStripMenuItem.Size = new System.Drawing.Size(64, 21);
             this.analyzeToolStripMenuItem.Text = "Analyze";
             // 
+            // tableLUTToolStripMenuItem
+            // 
+            this.tableLUTToolStripMenuItem.Name = "tableLUTToolStripMenuItem";
+            this.tableLUTToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.tableLUTToolStripMenuItem.Text = "Table LUT";
+            this.tableLUTToolStripMenuItem.Click += new System.EventHandler(this.tableLUTToolStripMenuItem_Click);
+            // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
@@ -120,19 +137,12 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif\"";
             // 
-            // tableLUTToolStripMenuItem
-            // 
-            this.tableLUTToolStripMenuItem.Name = "tableLUTToolStripMenuItem";
-            this.tableLUTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.tableLUTToolStripMenuItem.Text = "Table LUT";
-            this.tableLUTToolStripMenuItem.Click += new System.EventHandler(this.tableLUTToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
-            this.ClientSize = new System.Drawing.Size(484, 61);
+            this.ClientSize = new System.Drawing.Size(434, 52);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -157,6 +167,7 @@
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem tableLUTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toBlackAndWhiteToolStripMenuItem;
     }
 }
 

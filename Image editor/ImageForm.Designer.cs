@@ -48,9 +48,10 @@
             // imageBox1
             // 
             this.imageBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageBox1.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.imageBox1.Location = new System.Drawing.Point(0, 16);
             this.imageBox1.Name = "imageBox1";
-            this.imageBox1.Size = new System.Drawing.Size(584, 545);
+            this.imageBox1.Size = new System.Drawing.Size(272, 208);
             this.imageBox1.TabIndex = 2;
             this.imageBox1.TabStop = false;
             // 
@@ -58,11 +59,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 561);
+            this.ClientSize = new System.Drawing.Size(272, 224);
             this.Controls.Add(this.imageBox1);
             this.Controls.Add(this.ImageInfoLabel);
             this.Name = "ImageForm";
-            this.Text = "ImageForm";
+            this.Text = "Image";
             this.Activated += new System.EventHandler(this.ImageForm_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).EndInit();
             this.ResumeLayout(false);

@@ -21,30 +21,27 @@ namespace Image_editor
         {
             InitializeComponent();
         }
-
         private async void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 var newImage = new ImageForm(openFileDialog1);
                 await Task.Run(() => newImage.ShowDialog());
             }
         }
-
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
             if (DialogResult.OK == saveFileDialog.ShowDialog())
             {
-                ThisImage.SelectedImage.Save(saveFileDialog.FileName);
+                ImageStatic.SelectedImage.Save(saveFileDialog.FileName);
             }
         }
-
-        private void tableLUTToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void tableLUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var tableLUT = new TableLUT();
-            tableLUT.ShowDialog();
+            await Task.Run(() => tableLUT.ShowDialog());
         }
     }
 }

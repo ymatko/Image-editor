@@ -24,12 +24,13 @@ namespace Image_editor
             InputImage = new Image<Bgr, byte>(openFileDialog.FileName);
             imageBox1.Image = InputImage;
             this.Size = new Size(InputImage.Width + 16, InputImage.Height + 55);
-            ImageInfoLabel.Text = InputImage.Width + " x " + InputImage.Height + " " + openFileDialog.SafeFileName;
+            ImageInfoLabel.Text = InputImage.Width + " x " + InputImage.Height + " pixels";
+            this.Text = openFileDialog.SafeFileName;
             this.Activated += ImageForm_Activated;
         }
         private void ImageForm_Activated(object sender, EventArgs e)
         {
-            ThisImage.SelectedImage = InputImage;
+            ImageStatic.SelectedImage = InputImage;
         }
     }
 }
