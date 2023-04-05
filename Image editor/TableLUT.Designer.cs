@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.TableLUTView = new System.Windows.Forms.DataGridView();
-            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Red = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Green = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Blue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,7 +42,7 @@
             this.TableLUTView.AllowUserToDeleteRows = false;
             this.TableLUTView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TableLUTView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Value,
+            this.Count,
             this.Red,
             this.Green,
             this.Blue});
@@ -57,12 +57,12 @@
             this.TableLUTView.Size = new System.Drawing.Size(419, 442);
             this.TableLUTView.TabIndex = 0;
             // 
-            // Value
+            // Count
             // 
-            this.Value.Frozen = true;
-            this.Value.HeaderText = "Value";
-            this.Value.Name = "Value";
-            this.Value.ReadOnly = true;
+            this.Count.Frozen = true;
+            this.Count.HeaderText = "Count";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
             // 
             // Red
             // 
@@ -101,7 +101,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView TableLUTView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Value;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn Red;
         private System.Windows.Forms.DataGridViewTextBoxColumn Green;
         private System.Windows.Forms.DataGridViewTextBoxColumn Blue;

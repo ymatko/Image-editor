@@ -25,3 +25,8 @@ C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\msvcp140_atomic_wa
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\msvcp140_codecvt_ids.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\vcruntime140.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.TableLUT.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\ScottPlot.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\ScottPlot.WinForms.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.ValueTuple.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.HistogramForm.resources

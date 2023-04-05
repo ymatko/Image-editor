@@ -43,5 +43,11 @@ namespace Image_editor
             var tableLUT = new TableLUT();
             await Task.Run(() => tableLUT.ShowDialog());
         }
+
+        private async void histogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var histogramForm = new HistogramForm();
+            await Task.Run(() => histogramForm.ShowDialog());
+        }
     }
 }

@@ -53,6 +53,14 @@
             "Emgu.CV.runtime.windows": {
               "target": "Package",
               "version": "[4.6.0.5131, )"
+            },
+            "ScottPlot": {
+              "target": "Package",
+              "version": "[4.1.62, )"
+            },
+            "ScottPlot.WinForms": {
+              "target": "Package",
+              "version": "[4.1.62, )"
             }
           }
         }

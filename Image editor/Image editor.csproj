@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HistogramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistogramForm.Designer.cs">
+      <DependentUpon>HistogramForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TableLUT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="HistogramForm.resx">
+      <DependentUpon>HistogramForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TableLUT.resx">
       <DependentUpon>TableLUT.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +122,12 @@
     </PackageReference>
     <PackageReference Include="Emgu.CV.UI">
       <Version>4.6.0.5131</Version>
+    </PackageReference>
+    <PackageReference Include="ScottPlot">
+      <Version>4.1.62</Version>
+    </PackageReference>
+    <PackageReference Include="ScottPlot.WinForms">
+      <Version>4.1.62</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
