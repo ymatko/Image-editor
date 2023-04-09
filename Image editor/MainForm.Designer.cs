@@ -40,6 +40,7 @@
             this.histogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.toMonochromToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,6 +94,8 @@
             // 
             // imageToolStripMenuItem
             // 
+            this.imageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toMonochromToolStripMenuItem});
             this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
             this.imageToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
             this.imageToolStripMenuItem.Text = "Image";
@@ -115,14 +118,14 @@
             // tableLUTToolStripMenuItem
             // 
             this.tableLUTToolStripMenuItem.Name = "tableLUTToolStripMenuItem";
-            this.tableLUTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tableLUTToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.tableLUTToolStripMenuItem.Text = "Table LUT";
             this.tableLUTToolStripMenuItem.Click += new System.EventHandler(this.tableLUTToolStripMenuItem_Click);
             // 
             // histogramToolStripMenuItem
             // 
             this.histogramToolStripMenuItem.Name = "histogramToolStripMenuItem";
-            this.histogramToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.histogramToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.histogramToolStripMenuItem.Text = "Histogram";
             this.histogramToolStripMenuItem.Click += new System.EventHandler(this.histogramToolStripMenuItem_Click);
             // 
@@ -136,6 +139,13 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif\"";
+            // 
+            // toMonochromToolStripMenuItem
+            // 
+            this.toMonochromToolStripMenuItem.Name = "toMonochromToolStripMenuItem";
+            this.toMonochromToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toMonochromToolStripMenuItem.Text = "To B&W";
+            this.toMonochromToolStripMenuItem.Click += new System.EventHandler(this.toMonochromToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -168,6 +178,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem tableLUTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem histogramToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toMonochromToolStripMenuItem;
     }
 }
 

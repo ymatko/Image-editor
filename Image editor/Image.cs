@@ -1,11 +1,14 @@
 ﻿using Emgu.CV;
+using Emgu.CV.Ocl;
 using Emgu.CV.Structure;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Image_editor
 {
@@ -18,6 +21,10 @@ namespace Image_editor
         public Image(Image<Gray, Byte> img)
         {
             cvImage = img.Convert<Bgr, Byte>();
+        }
+        public Image(string link)
+        {
+            cvImage = new Image<Bgr, byte>(link);
         }
 
         public Emgu.CV.Image<Bgr, Byte> cvImage { get; private set; }

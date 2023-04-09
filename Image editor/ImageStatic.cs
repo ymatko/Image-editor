@@ -13,7 +13,12 @@ namespace Image_editor
 {
     internal static class ImageStatic
     {
-        public static string Name { get; internal set; }
+        internal static string Name { get; set; }
         internal static Image<Bgr, Byte> SelectedImage { get; set; }
+
+        internal static Image<Gray, Byte> ToGray()
+        {
+            return SelectedImage.Convert<Gray, Byte>();
+        }
     }
 }

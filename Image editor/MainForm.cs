@@ -11,7 +11,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Image_editor
 {
@@ -25,8 +24,9 @@ namespace Image_editor
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                var newImage = new ImageForm(openFileDialog1);
-                await Task.Run(() => newImage.ShowDialog());
+                var newImage = new Image<Bgr, byte>(openFileDialog1.FileName);
+                var newImageForm = new ImageForm(newImage, openFileDialog1.SafeFileName);
+                await Task.Run(() => newImageForm.ShowDialog());
             }
         }
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,6 +70,13 @@ namespace Image_editor
                 var histogramFormRGB = new HistogramFormRGB();
                 await Task.Run(() => histogramFormRGB.ShowDialog());
             }
+        }
+
+        private async void toMonochromToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var imageGray = ImageStatic.ToGray();
+            var newImageForm = new ImageForm(imageGray, ImageStatic.Name);
+            await Task.Run(() => newImageForm.ShowDialog());
         }
     }
 }

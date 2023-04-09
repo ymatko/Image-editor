@@ -17,20 +17,28 @@ namespace Image_editor
 {
     public partial class ImageForm : Form
     {
-        Image<Bgr, byte> InputImage;
-        public ImageForm(OpenFileDialog openFileDialog)
+        public ImageForm(Image<Bgr, Byte> image, string name)
         {
             InitializeComponent();
-            InputImage = new Image<Bgr, byte>(openFileDialog.FileName);
-            imageBox1.Image = InputImage;
-            this.Size = new Size(InputImage.Width + 16, InputImage.Height + 55);
-            ImageInfoLabel.Text = InputImage.Width + " x " + InputImage.Height + " pixels";
-            this.Text = openFileDialog.SafeFileName;
+            imageBox1.Image = image;
+            this.Size = new Size(image.Width + 16, image.Height + 55);
+            ImageInfoLabel.Text = image.Width + " x " + image.Height + " pixels";
+            this.Text = name;
             this.Activated += ImageForm_Activated;
         }
+        public ImageForm(Image<Gray, Byte> image, string name)
+        {
+            InitializeComponent();
+            imageBox1.Image = image.Convert<Bgr, Byte>();
+            this.Size = new Size(image.Width + 16, image.Height + 55);
+            ImageInfoLabel.Text = image.Width + " x " + image.Height + " pixels";
+            this.Text = $"{name}_B&W";
+            this.Activated += ImageForm_Activated;
+        }
+
         private void ImageForm_Activated(object sender, EventArgs e)
         {
-            ImageStatic.SelectedImage = InputImage;
+            ImageStatic.SelectedImage = (Image<Bgr, byte>)imageBox1.Image;
             ImageStatic.Name = this.Text;
         }
     }
