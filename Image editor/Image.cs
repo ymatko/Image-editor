@@ -47,5 +47,9 @@ namespace Image_editor
                 }
             }
         }
+        public Image<Bgr, Byte> ToGray()
+        {
+            return cvImage.Convert<Gray, Byte>().Convert<Bgr, Byte>();
+        }
     }
 }

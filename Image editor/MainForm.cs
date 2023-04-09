@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Emgu.CV.ML;
 
 namespace Image_editor
 {
@@ -26,7 +27,7 @@ namespace Image_editor
             {
                 var newImage = new Image<Bgr, byte>(openFileDialog1.FileName);
                 var newImageForm = new ImageForm(newImage, openFileDialog1.SafeFileName);
-                await Task.Run(() => newImageForm.ShowDialog());
+                newImageForm.dialog = await Task.Run(() => newImageForm.ShowDialog());
             }
         }
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,11 +73,10 @@ namespace Image_editor
             }
         }
 
-        private async void toMonochromToolStripMenuItem_Click(object sender, EventArgs e)
+        public void toMonochromToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var imageGray = ImageStatic.ToGray();
-            var newImageForm = new ImageForm(imageGray, ImageStatic.Name);
-            await Task.Run(() => newImageForm.ShowDialog());
+            var image = new Image(ImageStatic.SelectedImage);
+            ImageStatic.SelectedForm.AddImage(image.ToGray());
         }
     }
 }

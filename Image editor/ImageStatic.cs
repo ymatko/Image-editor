@@ -15,10 +15,6 @@ namespace Image_editor
     {
         internal static string Name { get; set; }
         internal static Image<Bgr, Byte> SelectedImage { get; set; }
-
-        internal static Image<Gray, Byte> ToGray()
-        {
-            return SelectedImage.Convert<Gray, Byte>();
-        }
+        internal static ImageForm SelectedForm { get; set; }
     }
 }
