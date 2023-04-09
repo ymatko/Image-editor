@@ -34,7 +34,6 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toBlackAndWhiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,17 +93,9 @@
             // 
             // imageToolStripMenuItem
             // 
-            this.imageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toBlackAndWhiteToolStripMenuItem});
             this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
             this.imageToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
             this.imageToolStripMenuItem.Text = "Image";
-            // 
-            // toBlackAndWhiteToolStripMenuItem
-            // 
-            this.toBlackAndWhiteToolStripMenuItem.Name = "toBlackAndWhiteToolStripMenuItem";
-            this.toBlackAndWhiteToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.toBlackAndWhiteToolStripMenuItem.Text = "To black and white";
             // 
             // processToolStripMenuItem
             // 
@@ -176,7 +167,6 @@
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem tableLUTToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toBlackAndWhiteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem histogramToolStripMenuItem;
     }
 }

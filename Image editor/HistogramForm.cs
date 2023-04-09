@@ -19,6 +19,7 @@ namespace Image_editor
         {
             InitializeComponent();
             var image = new Image(ImageStatic.SelectedImage);
+            this.Text = $"Histogram of {ImageStatic.Name}";
             image.CalculateHistogram();
             List<double> imagehist = new List<double>();
             for (int i = 0; i < image.red.Length; i++)

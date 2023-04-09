@@ -24,10 +24,11 @@ C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\msvcp140_2.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\msvcp140_atomic_wait.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\msvcp140_codecvt_ids.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\vcruntime140.dll
-C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.TableLUT.resources
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\ScottPlot.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\ScottPlot.WinForms.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.ValueTuple.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.HistogramForm.resources
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.HistogramFormRGB.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.TableLUT_BW.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.TableLUT_RGB.resources

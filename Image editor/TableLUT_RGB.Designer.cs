@@ -1,6 +1,6 @@
 ﻿namespace Image_editor
 {
-    partial class TableLUT
+    partial class TableLUT_RGB
     {
         /// <summary>
         /// Required designer variable.

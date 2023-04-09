@@ -40,8 +40,19 @@ namespace Image_editor
         }
         private async void tableLUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var tableLUT = new TableLUT();
-            await Task.Run(() => tableLUT.ShowDialog());
+            int i = 124;
+            var image = new Image(ImageStatic.SelectedImage);
+            image.CalculateHistogram();
+            if (image.red[i] == image.green[i] && image.red[i] == image.blue[i])
+            {
+                var tableLUT = new TableLUT_BW();
+                await Task.Run(() => tableLUT.ShowDialog());
+            }
+            else
+            {
+                var tableLUT = new TableLUT_RGB();
+                await Task.Run(() => tableLUT.ShowDialog());
+            }
         }
 
         private async void histogramToolStripMenuItem_Click(object sender, EventArgs e)

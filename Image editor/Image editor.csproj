@@ -59,11 +59,17 @@
     <Compile Include="HistogramFormRGB.Designer.cs">
       <DependentUpon>HistogramFormRGB.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableLUT.cs">
+    <Compile Include="TableLUT_BW.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TableLUT.Designer.cs">
-      <DependentUpon>TableLUT.cs</DependentUpon>
+    <Compile Include="TableLUT_BW.Designer.cs">
+      <DependentUpon>TableLUT_BW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableLUT_RGB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableLUT_RGB.Designer.cs">
+      <DependentUpon>TableLUT_RGB.cs</DependentUpon>
     </Compile>
     <Compile Include="Image.cs" />
     <Compile Include="ImageStatic.cs" />
@@ -87,8 +93,11 @@
     <EmbeddedResource Include="HistogramFormRGB.resx">
       <DependentUpon>HistogramFormRGB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TableLUT.resx">
-      <DependentUpon>TableLUT.cs</DependentUpon>
+    <EmbeddedResource Include="TableLUT_BW.resx">
+      <DependentUpon>TableLUT_BW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableLUT_RGB.resx">
+      <DependentUpon>TableLUT_RGB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -31,6 +31,7 @@ namespace Image_editor
         private void ImageForm_Activated(object sender, EventArgs e)
         {
             ImageStatic.SelectedImage = InputImage;
+            ImageStatic.Name = this.Text;
         }
     }
 }
