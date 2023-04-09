@@ -41,7 +41,6 @@
             this.histogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.histogramRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,8 +116,7 @@
             // 
             this.analyzeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tableLUTToolStripMenuItem,
-            this.histogramToolStripMenuItem,
-            this.histogramRGBToolStripMenuItem});
+            this.histogramToolStripMenuItem});
             this.analyzeToolStripMenuItem.Name = "analyzeToolStripMenuItem";
             this.analyzeToolStripMenuItem.Size = new System.Drawing.Size(64, 21);
             this.analyzeToolStripMenuItem.Text = "Analyze";
@@ -147,13 +145,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif\"";
-            // 
-            // histogramRGBToolStripMenuItem
-            // 
-            this.histogramRGBToolStripMenuItem.Name = "histogramRGBToolStripMenuItem";
-            this.histogramRGBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.histogramRGBToolStripMenuItem.Text = "Histogram RGB";
-            this.histogramRGBToolStripMenuItem.Click += new System.EventHandler(this.histogramRGBToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -187,7 +178,6 @@
         private System.Windows.Forms.ToolStripMenuItem tableLUTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toBlackAndWhiteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem histogramToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem histogramRGBToolStripMenuItem;
     }
 }
 

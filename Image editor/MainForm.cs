@@ -46,14 +46,19 @@ namespace Image_editor
 
         private async void histogramToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var histogramForm = new HistogramForm();
-            await Task.Run(() => histogramForm.ShowDialog());
-        }
-
-        private async void histogramRGBToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var histogramFormRGB = new HistogramFormRGB();
-            await Task.Run(() => histogramFormRGB.ShowDialog());
+            int i = 124;
+            var image = new Image(ImageStatic.SelectedImage);
+            image.CalculateHistogram();
+            if (image.red[i] == image.green[i] && image.red[i] == image.blue[i])
+            {
+                var histogramForm = new HistogramForm();
+                await Task.Run(() => histogramForm.ShowDialog());
+            }
+            else
+            {
+                var histogramFormRGB = new HistogramFormRGB();
+                await Task.Run(() => histogramFormRGB.ShowDialog());
+            }
         }
     }
 }
