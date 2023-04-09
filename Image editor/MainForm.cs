@@ -49,5 +49,11 @@ namespace Image_editor
             var histogramForm = new HistogramForm();
             await Task.Run(() => histogramForm.ShowDialog());
         }
+
+        private async void histogramRGBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var histogramFormRGB = new HistogramFormRGB();
+            await Task.Run(() => histogramFormRGB.ShowDialog());
+        }
     }
 }

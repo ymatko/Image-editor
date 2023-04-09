@@ -34,19 +34,21 @@
             // formsPlot1
             // 
             this.formsPlot1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formsPlot1.Enabled = false;
             this.formsPlot1.Location = new System.Drawing.Point(0, 0);
+            this.formsPlot1.Margin = new System.Windows.Forms.Padding(0);
             this.formsPlot1.Name = "formsPlot1";
-            this.formsPlot1.Size = new System.Drawing.Size(800, 450);
+            this.formsPlot1.Size = new System.Drawing.Size(400, 250);
             this.formsPlot1.TabIndex = 0;
             // 
-            // Form1
+            // HistogramForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(400, 250);
             this.Controls.Add(this.formsPlot1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "HistogramForm";
+            this.Text = "Histogram";
             this.ResumeLayout(false);
 
         }

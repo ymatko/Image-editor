@@ -30,3 +30,4 @@ C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\ScottPlot.WinForms
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.ValueTuple.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.HistogramForm.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.HistogramFormRGB.resources
