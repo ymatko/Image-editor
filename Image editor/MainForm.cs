@@ -78,5 +78,19 @@ namespace Image_editor
             var image = new Image(ImageStatic.SelectedImage);
             ImageStatic.SelectedForm.AddImage(image.ToGray());
         }
+
+        private void splitChannelsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStatic.SelectedImage;
+            var greenChannel = new ImageForm(image.Sub(new Bgr(255, 0, 255)).Convert<Gray, Byte>(), $"{ImageStatic.Name} Green");
+            var redChannel = new ImageForm(image.Sub(new Bgr(255, 255, 0)).Convert<Gray, Byte>(), $"{ImageStatic.Name} Red");
+            var blueChannel = new ImageForm(image.Sub(new Bgr(0, 255, 255)).Convert<Gray, Byte>(), $"{ImageStatic.Name} Blue");
+
+
+            Task.Run(() => blueChannel.ShowDialog());
+            Task.Run(() => greenChannel.ShowDialog());
+            Task.Run(() => redChannel.ShowDialog());
+
+        }
     }
 }

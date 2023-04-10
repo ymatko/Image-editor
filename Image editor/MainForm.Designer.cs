@@ -34,13 +34,14 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toMonochromToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.toMonochromToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,10 +96,18 @@
             // imageToolStripMenuItem
             // 
             this.imageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toMonochromToolStripMenuItem});
+            this.toMonochromToolStripMenuItem,
+            this.splitChannelsToolStripMenuItem});
             this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
             this.imageToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
             this.imageToolStripMenuItem.Text = "Image";
+            // 
+            // toMonochromToolStripMenuItem
+            // 
+            this.toMonochromToolStripMenuItem.Name = "toMonochromToolStripMenuItem";
+            this.toMonochromToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toMonochromToolStripMenuItem.Text = "To B&W";
+            this.toMonochromToolStripMenuItem.Click += new System.EventHandler(this.toMonochromToolStripMenuItem_Click);
             // 
             // processToolStripMenuItem
             // 
@@ -140,12 +149,12 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif\"";
             // 
-            // toMonochromToolStripMenuItem
+            // splitChannelsToolStripMenuItem
             // 
-            this.toMonochromToolStripMenuItem.Name = "toMonochromToolStripMenuItem";
-            this.toMonochromToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.toMonochromToolStripMenuItem.Text = "To B&W";
-            this.toMonochromToolStripMenuItem.Click += new System.EventHandler(this.toMonochromToolStripMenuItem_Click);
+            this.splitChannelsToolStripMenuItem.Name = "splitChannelsToolStripMenuItem";
+            this.splitChannelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.splitChannelsToolStripMenuItem.Text = "Split channels";
+            this.splitChannelsToolStripMenuItem.Click += new System.EventHandler(this.splitChannelsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -179,6 +188,7 @@
         private System.Windows.Forms.ToolStripMenuItem tableLUTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem histogramToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toMonochromToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem splitChannelsToolStripMenuItem;
     }
 }
 
