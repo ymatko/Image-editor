@@ -51,5 +51,9 @@ namespace Image_editor
         {
             return cvImage.Convert<Gray, Byte>().Convert<Bgr, Byte>();
         }
+        public Image<Hsv, Byte> ToHsv()
+        {
+            return cvImage.Convert<Hsv, Byte>();
+        }
     }
 }

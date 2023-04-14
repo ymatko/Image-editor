@@ -37,6 +37,15 @@ namespace Image_editor
             this.Text = $"{name}_B&W";
             this.Activated += ImageForm_Activated;
         }
+        public ImageForm(Image<Hsv, Byte> image, string name)
+        {
+            InitializeComponent();
+            imageBox1.Image = image;
+            this.Size = new Size(image.Width + 16, image.Height + 55);
+            ImageInfoLabel.Text = image.Width + " x " + image.Height + " pixels";
+            this.Text = $"{name}_HSV";
+            this.Activated += ImageForm_Activated;
+        }
         public void AddImage(Image<Bgr, Byte> img)
         {
             if (InvokeRequired) Invoke(new AppendLogProc(AddImage), new object[] { img });
@@ -46,8 +55,19 @@ namespace Image_editor
         private void ImageForm_Activated(object sender, EventArgs e)
         {
             ImageStatic.SelectedForm = this;
-            ImageStatic.SelectedImage = (Image<Bgr, byte>)imageBox1.Image;
             ImageStatic.Name = this.Text;
+            if(imageBox1.Image.GetType() == typeof(Image<Bgr, byte>))
+            {
+                ImageStatic.SelectedImageBgr = (Image<Bgr, byte>)imageBox1.Image;
+            }
+            if (imageBox1.Image.GetType() == typeof(Image<Gray, byte>))
+            {
+                ImageStatic.SelectedImageGray = (Image<Gray, byte>)imageBox1.Image;
+            }
+            if (imageBox1.Image.GetType() == typeof(Image<Hsv, byte>))
+            {
+                ImageStatic.SelectedImageHsv = (Image<Hsv, byte>)imageBox1.Image;
+            }
         }
     }
 }

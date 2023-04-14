@@ -15,7 +15,7 @@ namespace Image_editor
         public TableLUT_RGB()
         {
             InitializeComponent();
-            var selectedImage = ImageStatic.SelectedImage;
+            var selectedImage = ImageStatic.SelectedImageBgr;
             this.Text = ImageStatic.Name;
             var image = new Image(selectedImage);
             image.CalculateHistogram();

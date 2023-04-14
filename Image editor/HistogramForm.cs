@@ -18,7 +18,7 @@ namespace Image_editor
         public HistogramForm()
         {
             InitializeComponent();
-            var image = new Image(ImageStatic.SelectedImage);
+            var image = new Image(ImageStatic.SelectedImageBgr);
             this.Text = $"Histogram of {ImageStatic.Name}";
             image.CalculateHistogram();
             List<double> imagehist = new List<double>();

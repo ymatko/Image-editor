@@ -36,13 +36,13 @@ namespace Image_editor
             saveFileDialog.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
             if (DialogResult.OK == saveFileDialog.ShowDialog())
             {
-                ImageStatic.SelectedImage.Save(saveFileDialog.FileName);
+                ImageStatic.SelectedImageBgr.Save(saveFileDialog.FileName);
             }
         }
         private async void tableLUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int i = 124;
-            var image = new Image(ImageStatic.SelectedImage);
+            var image = new Image(ImageStatic.SelectedImageBgr);
             image.CalculateHistogram();
             if (image.red[i] == image.green[i] && image.red[i] == image.blue[i])
             {
@@ -59,7 +59,7 @@ namespace Image_editor
         private async void histogramToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int i = 124;
-            var image = new Image(ImageStatic.SelectedImage);
+            var image = new Image(ImageStatic.SelectedImageBgr);
             image.CalculateHistogram();
             if (image.red[i] == image.green[i] && image.red[i] == image.blue[i])
             {
@@ -75,13 +75,13 @@ namespace Image_editor
 
         public void toMonochromToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var image = new Image(ImageStatic.SelectedImage);
+            var image = new Image(ImageStatic.SelectedImageBgr);
             ImageStatic.SelectedForm.AddImage(image.ToGray());
         }
 
         private void splitChannelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var image = ImageStatic.SelectedImage;
+            var image = ImageStatic.SelectedImageBgr;
             var greenChannel = new ImageForm(image.Sub(new Bgr(255, 0, 255)).Convert<Gray, Byte>(), $"{ImageStatic.Name} Green");
             var redChannel = new ImageForm(image.Sub(new Bgr(255, 255, 0)).Convert<Gray, Byte>(), $"{ImageStatic.Name} Red");
             var blueChannel = new ImageForm(image.Sub(new Bgr(0, 255, 255)).Convert<Gray, Byte>(), $"{ImageStatic.Name} Blue");
@@ -91,6 +91,14 @@ namespace Image_editor
             Task.Run(() => greenChannel.ShowDialog());
             Task.Run(() => redChannel.ShowDialog());
 
+        }
+
+        private async void rGBToHSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image1 = ImageStatic.SelectedImageBgr.Convert<Hsv, Byte>();
+            var form1 = new ImageForm(image1, openFileDialog1.SafeFileName);
+
+            await Task.Run(() => form1.ShowDialog());
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Image_editor
         public TableLUT_BW()
         {
             InitializeComponent();
-            var selectedImage = ImageStatic.SelectedImage;
+            var selectedImage = ImageStatic.SelectedImageBgr;
             var image = new Image(selectedImage);
             image.CalculateHistogram();
             this.Text = $"LUT of {ImageStatic.Name}";
