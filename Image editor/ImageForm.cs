@@ -16,6 +16,10 @@ using System.Windows.Forms;
 namespace Image_editor
 {
     public delegate void AppendLogProc(Image<Bgr, Byte> img);
+    public delegate void AppendLogProcGray(Image<Gray, Byte> img);
+    public delegate void AppendLogProcHsv(Image<Hsv, Byte> img);
+
+
     public partial class ImageForm : Form
     {
         public DialogResult dialog;
@@ -49,6 +53,16 @@ namespace Image_editor
         public void AddImage(Image<Bgr, Byte> img)
         {
             if (InvokeRequired) Invoke(new AppendLogProc(AddImage), new object[] { img });
+            else this.imageBox1.Image = img;
+        }
+        public void AddImage(Image<Gray, Byte> img)
+        {
+            if (InvokeRequired) Invoke(new AppendLogProcGray(AddImage), new object[] { img });
+            else this.imageBox1.Image = img;
+        }
+        public void AddImage(Image<Hsv, Byte> img)
+        {
+            if (InvokeRequired) Invoke(new AppendLogProcHsv(AddImage), new object[] { img });
             else this.imageBox1.Image = img;
         }
 

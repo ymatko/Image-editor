@@ -21,16 +21,25 @@ namespace Image_editor
         {
             InitializeComponent();
         }
+
+        private void toMonochromToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStatic.SelectedImageBgr;
+            ImageStatic.SelectedForm.AddImage(image.Convert<Gray, Byte>());
+        }
+
         private async void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 var newImage = new Image<Bgr, byte>(openFileDialog1.FileName);
                 var newImageForm = new ImageForm(newImage, openFileDialog1.SafeFileName);
+
                 newImageForm.dialog = await Task.Run(() => newImageForm.ShowDialog());
             }
         }
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void toRGBToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
@@ -39,44 +48,25 @@ namespace Image_editor
                 ImageStatic.SelectedImageBgr.Save(saveFileDialog.FileName);
             }
         }
-        private async void tableLUTToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void toGrayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int i = 124;
-            var image = new Image(ImageStatic.SelectedImageBgr);
-            image.CalculateHistogram();
-            if (image.red[i] == image.green[i] && image.red[i] == image.blue[i])
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
+            if (DialogResult.OK == saveFileDialog.ShowDialog())
             {
-                var tableLUT = new TableLUT_BW();
-                await Task.Run(() => tableLUT.ShowDialog());
-            }
-            else
-            {
-                var tableLUT = new TableLUT_RGB();
-                await Task.Run(() => tableLUT.ShowDialog());
+                ImageStatic.SelectedImageGray.Save(saveFileDialog.FileName);
             }
         }
 
-        private async void histogramToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toHSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int i = 124;
-            var image = new Image(ImageStatic.SelectedImageBgr);
-            image.CalculateHistogram();
-            if (image.red[i] == image.green[i] && image.red[i] == image.blue[i])
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
+            if (DialogResult.OK == saveFileDialog.ShowDialog())
             {
-                var histogramForm = new HistogramForm();
-                await Task.Run(() => histogramForm.ShowDialog());
+                ImageStatic.SelectedImageHsv.Save(saveFileDialog.FileName);
             }
-            else
-            {
-                var histogramFormRGB = new HistogramFormRGB();
-                await Task.Run(() => histogramFormRGB.ShowDialog());
-            }
-        }
-
-        public void toMonochromToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var image = new Image(ImageStatic.SelectedImageBgr);
-            ImageStatic.SelectedForm.AddImage(image.ToGray());
         }
 
         private void splitChannelsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -90,15 +80,22 @@ namespace Image_editor
             Task.Run(() => blueChannel.ShowDialog());
             Task.Run(() => greenChannel.ShowDialog());
             Task.Run(() => redChannel.ShowDialog());
-
         }
 
         private async void rGBToHSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var image1 = ImageStatic.SelectedImageBgr.Convert<Hsv, Byte>();
-            var form1 = new ImageForm(image1, openFileDialog1.SafeFileName);
+            var image = ImageStatic.SelectedImageBgr.Convert<Hsv, Byte>();
+            var formImage = new ImageForm(image, openFileDialog1.SafeFileName);
 
-            await Task.Run(() => form1.ShowDialog());
+            await Task.Run(() => formImage.ShowDialog());
+        }
+
+        private async void histogramTableGrayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = new Image(ImageStatic.SelectedImageGray);
+            image.CalculateHistogram();
+            var tableLUT = new TableLUT_BW();
+            await Task.Run(() => tableLUT.ShowDialog());
         }
     }
 }
