@@ -45,9 +45,6 @@
             this.histogramRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.toRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toGrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toHSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,13 +85,10 @@
             // 
             // saveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toRGBToolStripMenuItem,
-            this.toGrayToolStripMenuItem,
-            this.toHSVToolStripMenuItem});
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -117,21 +111,18 @@
             this.toMonochromToolStripMenuItem.Name = "toMonochromToolStripMenuItem";
             this.toMonochromToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.toMonochromToolStripMenuItem.Text = "To Gray";
-            this.toMonochromToolStripMenuItem.Click += new System.EventHandler(this.toMonochromToolStripMenuItem_Click);
             // 
             // splitChannelsToolStripMenuItem
             // 
             this.splitChannelsToolStripMenuItem.Name = "splitChannelsToolStripMenuItem";
-            this.splitChannelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.splitChannelsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.splitChannelsToolStripMenuItem.Text = "Split channels";
-            this.splitChannelsToolStripMenuItem.Click += new System.EventHandler(this.splitChannelsToolStripMenuItem_Click);
             // 
             // rGBToHSVToolStripMenuItem
             // 
             this.rGBToHSVToolStripMenuItem.Name = "rGBToHSVToolStripMenuItem";
-            this.rGBToHSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rGBToHSVToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.rGBToHSVToolStripMenuItem.Text = "RGB to HSV";
-            this.rGBToHSVToolStripMenuItem.Click += new System.EventHandler(this.rGBToHSVToolStripMenuItem_Click);
             // 
             // processToolStripMenuItem
             // 
@@ -155,7 +146,6 @@
             this.histogramTableGrayToolStripMenuItem.Name = "histogramTableGrayToolStripMenuItem";
             this.histogramTableGrayToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.histogramTableGrayToolStripMenuItem.Text = "Histogram Table Gray";
-            this.histogramTableGrayToolStripMenuItem.Click += new System.EventHandler(this.histogramTableGrayToolStripMenuItem_Click);
             // 
             // tableLUTToolStripMenuItem
             // 
@@ -185,27 +175,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif\"";
-            // 
-            // toRGBToolStripMenuItem
-            // 
-            this.toRGBToolStripMenuItem.Name = "toRGBToolStripMenuItem";
-            this.toRGBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.toRGBToolStripMenuItem.Text = "To RGB";
-            this.toRGBToolStripMenuItem.Click += new System.EventHandler(this.toRGBToolStripMenuItem_Click);
-            // 
-            // toGrayToolStripMenuItem
-            // 
-            this.toGrayToolStripMenuItem.Name = "toGrayToolStripMenuItem";
-            this.toGrayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.toGrayToolStripMenuItem.Text = "To Gray";
-            this.toGrayToolStripMenuItem.Click += new System.EventHandler(this.toGrayToolStripMenuItem_Click);
-            // 
-            // toHSVToolStripMenuItem
-            // 
-            this.toHSVToolStripMenuItem.Name = "toHSVToolStripMenuItem";
-            this.toHSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.toHSVToolStripMenuItem.Text = "To HSV";
-            this.toHSVToolStripMenuItem.Click += new System.EventHandler(this.toHSVToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -243,9 +212,6 @@
         private System.Windows.Forms.ToolStripMenuItem rGBToHSVToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem histogramRGBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem histogramTableGrayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toRGBToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toGrayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toHSVToolStripMenuItem;
     }
 }
 

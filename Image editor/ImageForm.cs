@@ -1,4 +1,5 @@
 ﻿using Emgu.CV;
+using Emgu.CV.DepthAI;
 using Emgu.CV.Structure;
 using Emgu.CV.UI;
 using System;
@@ -12,75 +13,43 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Image_editor
 {
-    public delegate void AppendLogProc(Image<Bgr, Byte> img);
-    public delegate void AppendLogProcGray(Image<Gray, Byte> img);
-    public delegate void AppendLogProcHsv(Image<Hsv, Byte> img);
-
-
-    public partial class ImageForm : Form
+    public partial class ImageForm: Form
     {
-        public DialogResult dialog;
-        public ImageForm(Image<Bgr, Byte> image, string name)
+        private dynamic _image;
+        public ImageForm()
         {
             InitializeComponent();
-            imageBox1.Image = image;
-            this.Size = new Size(image.Width + 16, image.Height + 55);
-            ImageInfoLabel.Text = image.Width + " x " + image.Height + " pixels";
+        }
+        public void LoadImage<T>(string path, string name) where T : struct, IColor
+        {
+            _image = new Image<T, byte>(path);
+            imageBox1.Image = _image;
+            this.Size = new Size(_image.Width + 16, _image.Height + 55);
+            ImageInfoLabel.Text = _image.Width + " x " + _image.Height + " pixels";
             this.Text = name;
             this.Activated += ImageForm_Activated;
-        }
-        public ImageForm(Image<Gray, Byte> image, string name)
-        {
-            InitializeComponent();
-            imageBox1.Image = image.Convert<Bgr, Byte>();
-            this.Size = new Size(image.Width + 16, image.Height + 55);
-            ImageInfoLabel.Text = image.Width + " x " + image.Height + " pixels";
-            this.Text = $"{name}_B&W";
-            this.Activated += ImageForm_Activated;
-        }
-        public ImageForm(Image<Hsv, Byte> image, string name)
-        {
-            InitializeComponent();
-            imageBox1.Image = image;
-            this.Size = new Size(image.Width + 16, image.Height + 55);
-            ImageInfoLabel.Text = image.Width + " x " + image.Height + " pixels";
-            this.Text = $"{name}_HSV";
-            this.Activated += ImageForm_Activated;
-        }
-        public void AddImage(Image<Bgr, Byte> img)
-        {
-            if (InvokeRequired) Invoke(new AppendLogProc(AddImage), new object[] { img });
-            else this.imageBox1.Image = img;
-        }
-        public void AddImage(Image<Gray, Byte> img)
-        {
-            if (InvokeRequired) Invoke(new AppendLogProcGray(AddImage), new object[] { img });
-            else this.imageBox1.Image = img;
-        }
-        public void AddImage(Image<Hsv, Byte> img)
-        {
-            if (InvokeRequired) Invoke(new AppendLogProcHsv(AddImage), new object[] { img });
-            else this.imageBox1.Image = img;
         }
 
         private void ImageForm_Activated(object sender, EventArgs e)
         {
-            ImageStatic.SelectedForm = this;
-            ImageStatic.Name = this.Text;
-            if(imageBox1.Image.GetType() == typeof(Image<Bgr, byte>))
+            if (imageBox1.Image is Image<Bgr, byte> bgrImage)
             {
-                ImageStatic.SelectedImageBgr = (Image<Bgr, byte>)imageBox1.Image;
+                ImageStorage<Bgr>.Image = bgrImage;
+                ImageStorage<Bgr>.Name = this.Text;
             }
-            if (imageBox1.Image.GetType() == typeof(Image<Gray, byte>))
+            else if (imageBox1.Image is Image<Hsv, byte> hsvImage)
             {
-                ImageStatic.SelectedImageGray = (Image<Gray, byte>)imageBox1.Image;
+                ImageStorage<Hsv>.Image = hsvImage;
+                ImageStorage<Hsv>.Name = this.Text;
             }
-            if (imageBox1.Image.GetType() == typeof(Image<Hsv, byte>))
+            else if (imageBox1.Image is Image<Gray, byte> grayImage)
             {
-                ImageStatic.SelectedImageHsv = (Image<Hsv, byte>)imageBox1.Image;
+                ImageStorage<Gray>.Image = grayImage;
+                ImageStorage<Gray>.Name = this.Text;
             }
         }
     }

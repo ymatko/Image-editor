@@ -15,15 +15,15 @@ namespace Image_editor
         public TableLUT_BW()
         {
             InitializeComponent();
-            var selectedImage = ImageStatic.SelectedImageBgr;
-            var image = new Image(selectedImage);
-            image.CalculateHistogram();
-            this.Text = $"LUT of {ImageStatic.Name}";
-            for (int i = 0; i < 256; i++)
-            {
-                string[] row = new string[] { $"{i}", $"{image.red[i]}"};
-                TableLUTView.Rows.Add(row);
-            }
+            //var selectedImage = ImageStatic.SelectedImageBgr;
+            //var image = new Image(selectedImage);
+            //image.CalculateHistogram();
+            //this.Text = $"LUT of {ImageStatic.Name}";
+            //for (int i = 0; i < 256; i++)
+            //{
+            //    string[] row = new string[] { $"{i}", $"{image.red[i]}"};
+            //    TableLUTView.Rows.Add(row);
+            //}
         }
     }
 }

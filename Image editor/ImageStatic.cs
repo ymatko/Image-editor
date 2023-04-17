@@ -11,13 +11,15 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Image_editor
 {
-    internal static class ImageStatic
+    internal static class ImageStorage<T> where T : struct, IColor
     {
-        internal static string Name { get; set; }
-        internal static Image<Bgr, Byte> SelectedImageBgr { get; set; }
-        internal static Image<Gray, Byte> SelectedImageGray { get; set; }
-        internal static Image<Hsv, Byte> SelectedImageHsv { get; set; }
-
-        internal static ImageForm SelectedForm { get; set; }
+        private static Image<T, byte> _image;
+        public static Image<T, byte> Image
+        {
+            get { return _image; }
+            set { _image = value; }
+        }
+        public static string Name { get; set; }
+        public static Type ImageType = typeof(T);
     }
 }

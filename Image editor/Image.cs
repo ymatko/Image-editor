@@ -20,7 +20,11 @@ namespace Image_editor
         }
         public Image(Image<Gray, Byte> img)
         {
-            cvImage = img.Convert<Bgr, Byte>();
+            cvImageGray = img;
+        }
+        public Image(Image<Hsv, Byte> img)
+        {
+            cvImageHsv = img;
         }
         public Image(string link)
         {
@@ -28,6 +32,10 @@ namespace Image_editor
         }
 
         public Emgu.CV.Image<Bgr, Byte> cvImage { get; private set; }
+        public Emgu.CV.Image<Gray, Byte> cvImageGray { get; private set; }
+        public Emgu.CV.Image<Hsv, Byte> cvImageHsv { get; private set; }
+
+
         public UInt16[] red { get; private set; } = new UInt16[256];
         public UInt16[] green { get; private set; } = new UInt16[256];
         public UInt16[] blue { get; private set; } = new UInt16[256];
