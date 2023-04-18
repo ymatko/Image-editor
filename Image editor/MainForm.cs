@@ -70,5 +70,24 @@ namespace Image_editor
                 await Task.Run(() => form.ShowDialog());
             }
         }
+
+        private async void splitChannelsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage<Bgr>.Image;
+            var channels = image.Split();
+
+            var formRed = new ImageForm();
+            formRed.LoadImage(channels[2], $"{ImageStorage<Bgr>.Name}_RedChannel");
+
+            var formGreen = new ImageForm();
+            formGreen.LoadImage(channels[1], $"{ImageStorage<Bgr>.Name}_GreenChannel"); 
+
+            var formBlue = new ImageForm();
+            formBlue.LoadImage(channels[0], $"{ImageStorage<Bgr>.Name}_BlueChannel");
+
+            _ = Task.Run(() => formRed.ShowDialog());
+            _ = Task.Run(() => formGreen.ShowDialog());
+            _ = Task.Run(() => formBlue.ShowDialog());
+        }
     }
 }

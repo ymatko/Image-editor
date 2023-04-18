@@ -71,8 +71,7 @@
     <Compile Include="TableLUT_RGB.Designer.cs">
       <DependentUpon>TableLUT_RGB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Image.cs" />
-    <Compile Include="ImageStatic.cs" />
+    <Compile Include="ImageStorage.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

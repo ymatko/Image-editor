@@ -118,6 +118,7 @@
             this.splitChannelsToolStripMenuItem.Name = "splitChannelsToolStripMenuItem";
             this.splitChannelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.splitChannelsToolStripMenuItem.Text = "Split channels";
+            this.splitChannelsToolStripMenuItem.Click += new System.EventHandler(this.splitChannelsToolStripMenuItem_Click);
             // 
             // rGBToHSVToolStripMenuItem
             // 
