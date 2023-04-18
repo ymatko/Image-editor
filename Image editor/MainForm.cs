@@ -32,7 +32,6 @@ namespace Image_editor
 
             }
         }
-
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -51,6 +50,24 @@ namespace Image_editor
                 {
                     ImageStorage<Gray>.Image.Save(saveFileDialog.FileName);
                 }
+            }
+        }
+
+        private async void toMonochromToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ImageStorage<Bgr>.ImageType == typeof(Bgr))
+            {
+                var form = new ImageForm();
+                var image = ImageStorage<Bgr>.Image.Convert<Gray, byte>();
+                form.LoadImage(image, $"{ ImageStorage<Bgr>.Name}_Gray");
+                await Task.Run(() => form.ShowDialog());
+            }
+            else if (ImageStorage<Hsv>.ImageType == typeof(Hsv))
+            {
+                var form = new ImageForm();
+                var image = ImageStorage<Hsv>.Image.Convert<Gray, byte>();
+                form.LoadImage(image, $"{ImageStorage<Hsv>.Name}_Gray");
+                await Task.Run(() => form.ShowDialog());
             }
         }
     }

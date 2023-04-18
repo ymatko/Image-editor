@@ -33,6 +33,31 @@ namespace Image_editor
             this.Text = name;
             this.Activated += ImageForm_Activated;
         }
+        public void LoadImage(Image<Bgr, byte> bgrImage, string name)
+        {
+            imageBox1.Image = bgrImage;
+            this.Size = new Size(bgrImage.Width + 16, bgrImage.Height + 55);
+            ImageInfoLabel.Text = bgrImage.Width + " x " + bgrImage.Height + " pixels";
+            this.Text = name;
+            this.Activated += ImageForm_Activated;
+        }
+
+        public void LoadImage(Image<Hsv, byte> hsvImage, string name)
+        {
+            imageBox1.Image = hsvImage;
+            this.Size = new Size(hsvImage.Width + 16, hsvImage.Height + 55);
+            ImageInfoLabel.Text = hsvImage.Width + " x " + hsvImage.Height + " pixels";
+            this.Text = name;
+            this.Activated += ImageForm_Activated;
+        }
+        public void LoadImage(Image<Gray, byte> hsvImage, string name)
+        {
+            imageBox1.Image = hsvImage;
+            this.Size = new Size(hsvImage.Width + 16, hsvImage.Height + 55);
+            ImageInfoLabel.Text = hsvImage.Width + " x " + hsvImage.Height + " pixels";
+            this.Text = name;
+            this.Activated += ImageForm_Activated;
+        }
 
         private void ImageForm_Activated(object sender, EventArgs e)
         {

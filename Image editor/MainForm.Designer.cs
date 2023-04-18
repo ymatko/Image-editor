@@ -109,19 +109,20 @@
             // toMonochromToolStripMenuItem
             // 
             this.toMonochromToolStripMenuItem.Name = "toMonochromToolStripMenuItem";
-            this.toMonochromToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.toMonochromToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.toMonochromToolStripMenuItem.Text = "To Gray";
+            this.toMonochromToolStripMenuItem.Click += new System.EventHandler(this.toMonochromToolStripMenuItem_Click);
             // 
             // splitChannelsToolStripMenuItem
             // 
             this.splitChannelsToolStripMenuItem.Name = "splitChannelsToolStripMenuItem";
-            this.splitChannelsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.splitChannelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.splitChannelsToolStripMenuItem.Text = "Split channels";
             // 
             // rGBToHSVToolStripMenuItem
             // 
             this.rGBToHSVToolStripMenuItem.Name = "rGBToHSVToolStripMenuItem";
-            this.rGBToHSVToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.rGBToHSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rGBToHSVToolStripMenuItem.Text = "RGB to HSV";
             // 
             // processToolStripMenuItem
