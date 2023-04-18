@@ -125,6 +125,7 @@
             this.rGBToHSVToolStripMenuItem.Name = "rGBToHSVToolStripMenuItem";
             this.rGBToHSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rGBToHSVToolStripMenuItem.Text = "RGB to HSV";
+            this.rGBToHSVToolStripMenuItem.Click += new System.EventHandler(this.rGBToHSVToolStripMenuItem_Click);
             // 
             // processToolStripMenuItem
             // 

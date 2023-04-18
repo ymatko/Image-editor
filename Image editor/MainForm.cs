@@ -39,7 +39,7 @@ namespace Image_editor
             if (DialogResult.OK == saveFileDialog.ShowDialog())
             {
                 if(ImageStorage<Bgr>.ImageType == typeof(Bgr))
-{
+                {
                     ImageStorage<Bgr>.Image.Save(saveFileDialog.FileName);
                 }
                 else if (ImageStorage<Hsv>.ImageType == typeof(Hsv))
@@ -88,6 +88,16 @@ namespace Image_editor
             _ = Task.Run(() => formRed.ShowDialog());
             _ = Task.Run(() => formGreen.ShowDialog());
             _ = Task.Run(() => formBlue.ShowDialog());
+        }
+
+        private async void rGBToHSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage<Bgr>.Image;
+
+            var form = new ImageForm();
+            form.LoadImage(image.Convert<Hsv, byte>(), $"{ImageStorage<Bgr>.Name}_HSV");
+
+            await Task.Run(() => form.ShowDialog());
         }
     }
 }
