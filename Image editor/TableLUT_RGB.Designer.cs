@@ -85,14 +85,15 @@
             this.Blue.Name = "Blue";
             this.Blue.ReadOnly = true;
             // 
-            // TableLUT
+            // TableLUT_RGB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 442);
             this.Controls.Add(this.TableLUTView);
-            this.Name = "TableLUT";
+            this.Name = "TableLUT_RGB";
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.TableLUT_RGB_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.TableLUTView)).EndInit();
             this.ResumeLayout(false);
 

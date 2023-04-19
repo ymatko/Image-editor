@@ -104,6 +104,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "HistogramFormRGB";
             this.Text = "HistogramFormRGB";
+            this.Activated += new System.EventHandler(this.HistogramFormRGB_Activated);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

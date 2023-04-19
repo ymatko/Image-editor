@@ -12,11 +12,18 @@ using System.Windows.Forms;
 
 namespace Image_editor
 {
+
     public partial class HistogramFormRGB : Form
     {
         public HistogramFormRGB()
         {
             InitializeComponent();
+            RefreshForm();
+            this.Activated += HistogramFormRGB_Activated;
+        }
+        private void RefreshForm()
+        {
+            ImageStorage.CalculateHistogram();
             this.Text = $"Histogram of {ImageStorage.Name}";
 
             List<double> imagehistR = new List<double>();
@@ -54,5 +61,12 @@ namespace Image_editor
             formsPlotB.Refresh();
         }
 
+        private void HistogramFormRGB_Activated(object sender, EventArgs e)
+        {
+            formsPlotR.Plot.Clear();
+            formsPlotG.Plot.Clear(); 
+            formsPlotB.Plot.Clear();
+            RefreshForm();
+        }
     }
 }

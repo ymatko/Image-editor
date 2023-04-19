@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,9 +17,29 @@ namespace Image_editor
 {
     internal static class ImageStorage
     {
-        public static dynamic Image;
+        public static event EventHandler ImageChanged;
+
+        public static dynamic Image { get; set; }
+
+
+        public static void OnImageChanged()
+        {
+            ImageChanged?.Invoke(null, EventArgs.Empty);
+        }
         public static ImageForm Form { get; set; }
-        public static int Type;
+        private static int _type;
+        public static int Type
+        {
+            get => _type;
+            set
+            {
+                if(_type != value)
+                {
+                    _type = value;
+                    OnImageChanged();
+                }
+            }
+        }
         // 1 - Bgr
         // 2 - Hsv
         // 3 - Gray
@@ -34,10 +55,10 @@ namespace Image_editor
             Type = 2;
             return Image.Convert<Hsv, byte>();
         }
-        public static Image<Gray, byte> ConvertToGray()
+        public static Image<Bgr, byte> ConvertToGray()
         {
             Type = 3;
-            return Image.Convert<Gray, byte>();
+            return Image.Convert<Gray, byte>().Convert<Bgr, byte>();
         }
         public static Image<Lab, byte> ConvertToLab()
         {
@@ -50,7 +71,7 @@ namespace Image_editor
 
         public static void CalculateHistogram()
         {
-            dynamic image = ConvertToHsv();
+            dynamic image = Image;
             if (Type == 1)
             {
                 image = ConvertToBgr();

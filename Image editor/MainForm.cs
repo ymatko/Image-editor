@@ -72,6 +72,17 @@ namespace Image_editor
             var image = ImageStorage.ConvertToHsv();
             ImageStorage.Form.AddImage(image);
         }
+        private void rGBToLABToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage.ConvertToLab();
+            ImageStorage.Form.AddImage(image);
+        }
+
+        private void toRGBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage.ConvertToBgr();
+            ImageStorage.Form.AddImage(image);
+        }
 
         private void splitChannelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -106,42 +117,27 @@ namespace Image_editor
 
         private async void histogramTableGrayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ImageStorage.CalculateHistogram();
             var form = new TableLUT_BW();
             await Task.Run(() => form.ShowDialog());
         }
 
         private async void tableLUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ImageStorage.CalculateHistogram();
             var form = new TableLUT_RGB();
             await Task.Run(() => form.ShowDialog());
         }
 
         private async void histogramToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ImageStorage.CalculateHistogram();
             var form = new HistogramForm();
             await Task.Run(() => form.ShowDialog());
         }
 
         private async void histogramRGBToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ImageStorage.CalculateHistogram();
             var form = new HistogramFormRGB();
             await Task.Run(() => form.ShowDialog());
         }
 
-        private async void rGBToLABToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var image = ImageStorage.ConvertToLab();
-            ImageStorage.Form.AddImage(image);
-        }
-
-        private void toRGBToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var image = ImageStorage.ConvertToBgr();
-            ImageStorage.Form.AddImage(image);
-        }
     }
 }

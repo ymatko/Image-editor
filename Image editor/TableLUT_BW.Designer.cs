@@ -75,6 +75,7 @@
             this.Controls.Add(this.TableLUTView);
             this.Name = "TableLUT_BW";
             this.Text = "TableLUT_BW";
+            this.Activated += new System.EventHandler(this.TableLUT_BW_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.TableLUTView)).EndInit();
             this.ResumeLayout(false);
 

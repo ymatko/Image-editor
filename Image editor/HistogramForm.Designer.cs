@@ -49,6 +49,7 @@
             this.Controls.Add(this.formsPlot1);
             this.Name = "HistogramForm";
             this.Text = "Histogram";
+            this.Activated += new System.EventHandler(this.HistogramForm_Activated);
             this.ResumeLayout(false);
 
         }
