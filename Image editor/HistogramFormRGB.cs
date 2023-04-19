@@ -14,45 +14,45 @@ namespace Image_editor
 {
     public partial class HistogramFormRGB : Form
     {
-        //public HistogramFormRGB()
-        //{
-        //    InitializeComponent();
-        //    var image = new Image(ImageStatic.SelectedImageBgr);
-        //    this.Text = $"Histogram of {ImageStatic.Name}";
-        //    image.CalculateHistogram();
-        //    List<double> imagehistR = new List<double>();
-        //    List<double> imagehistG = new List<double>();
-        //    List<double> imagehistB = new List<double>();
+        public HistogramFormRGB()
+        {
+            InitializeComponent();
+            this.Text = $"Histogram of {ImageStorage.Name}";
 
-        //    for (int i = 0; i < image.red.Length; i++)
-        //    {
-        //        imagehistR.Add(Convert.ToDouble(image.red[i]));
+            List<double> imagehistR = new List<double>();
+            List<double> imagehistG = new List<double>();
+            List<double> imagehistB = new List<double>();
 
-        //    }
+            for (int i = 0; i < ImageStorage.red.Length; i++)
+            {
+                imagehistR.Add(Convert.ToDouble(ImageStorage.red[i]));
 
-        //    for (int i = 0; i < image.green.Length; i++)
-        //    {
-        //        imagehistG.Add(Convert.ToDouble(image.green[i]));
+            }
 
-        //    }
+            for (int i = 0; i < ImageStorage.green.Length; i++)
+            {
+                imagehistG.Add(Convert.ToDouble(ImageStorage.green[i]));
 
-        //    for (int i = 0; i < image.blue.Length; i++)
-        //    {
-        //        imagehistB.Add(Convert.ToDouble(image.blue[i]));
+            }
 
-        //    }
+            for (int i = 0; i < ImageStorage.blue.Length; i++)
+            {
+                imagehistB.Add(Convert.ToDouble(ImageStorage.blue[i]));
 
-        //    double[] doublesR = imagehistR.ToArray();
-        //    double[] doublesG = imagehistG.ToArray();
-        //    double[] doublesB = imagehistB.ToArray();
+            }
 
-        //    formsPlotR.Plot.AddBar(doublesR, color:Color.Red).BorderColor = Color.Red;
-        //    formsPlotG.Plot.AddBar(doublesG, color: Color.Green).BorderColor = Color.Green;
-        //    formsPlotB.Plot.AddBar(doublesB, color: Color.Blue).BorderColor = Color.Blue;
+            double[] doublesR = imagehistR.ToArray();
+            double[] doublesG = imagehistG.ToArray();
+            double[] doublesB = imagehistB.ToArray();
 
-        //    formsPlotR.Refresh();
-        //    formsPlotG.Refresh();
-        //    formsPlotB.Refresh();
-        //}
+            formsPlotR.Plot.AddBar(doublesR, color: Color.Red).BorderColor = Color.Red;
+            formsPlotG.Plot.AddBar(doublesG, color: Color.Green).BorderColor = Color.Green;
+            formsPlotB.Plot.AddBar(doublesB, color: Color.Blue).BorderColor = Color.Blue;
+
+            formsPlotR.Refresh();
+            formsPlotG.Refresh();
+            formsPlotB.Refresh();
+        }
+
     }
 }

@@ -21,83 +21,127 @@ namespace Image_editor
         {
             InitializeComponent();
         }
+
         private async void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                var form = new ImageForm();
-                form.LoadImage<Bgr>(openFileDialog1.FileName, openFileDialog1.SafeFileName);
+                var image = new Image<Bgr, byte>(openFileDialog1.FileName);
+                var form = new ImageForm(image, openFileDialog1.SafeFileName);
                 await Task.Run(() => form.ShowDialog());
-
             }
         }
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
             if (DialogResult.OK == saveFileDialog.ShowDialog())
             {
-                if(ImageStorage<Bgr>.ImageType == typeof(Bgr))
+                if (ImageStorage.Type == 2)
                 {
-                    ImageStorage<Bgr>.Image.Save(saveFileDialog.FileName);
+                    var image = ImageStorage.ConvertToHsv();
+                    image.Save(saveFileDialog.FileName);
                 }
-                else if (ImageStorage<Hsv>.ImageType == typeof(Hsv))
+                else if(ImageStorage.Type == 3)
                 {
-                    ImageStorage<Hsv>.Image.Save(saveFileDialog.FileName);
+                    var image = ImageStorage.ConvertToGray();
+                    image.Save(saveFileDialog.FileName);
                 }
-                else if (ImageStorage<Gray>.ImageType == typeof(Gray))
+                else if (ImageStorage.Type == 4)
                 {
-                    ImageStorage<Gray>.Image.Save(saveFileDialog.FileName);
+                    var image = ImageStorage.ConvertToLab();
+                    image.Save(saveFileDialog.FileName);
+                }
+                else if (ImageStorage.Type != 2 && ImageStorage.Type != 3)
+                {
+                    var image = ImageStorage.ConvertToBgr();
+                    image.Save(saveFileDialog.FileName);
                 }
             }
         }
 
-        private async void toMonochromToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toMonochromToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (ImageStorage<Bgr>.ImageType == typeof(Bgr))
-            {
-                var form = new ImageForm();
-                var image = ImageStorage<Bgr>.Image.Convert<Gray, byte>();
-                form.LoadImage(image, $"{ ImageStorage<Bgr>.Name}_Gray");
-                await Task.Run(() => form.ShowDialog());
-            }
-            else if (ImageStorage<Hsv>.ImageType == typeof(Hsv))
-            {
-                var form = new ImageForm();
-                var image = ImageStorage<Hsv>.Image.Convert<Gray, byte>();
-                form.LoadImage(image, $"{ImageStorage<Hsv>.Name}_Gray");
-                await Task.Run(() => form.ShowDialog());
-            }
+            var image = ImageStorage.ConvertToGray();
+            ImageStorage.Form.AddImage(image);
         }
 
-        private async void splitChannelsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void rGBToHSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var image = ImageStorage<Bgr>.Image;
+            var image = ImageStorage.ConvertToHsv();
+            ImageStorage.Form.AddImage(image);
+        }
+
+        private void splitChannelsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dynamic image = ImageStorage.ConvertToBgr();
+            if (ImageStorage.Type == 1)
+            {
+                image = ImageStorage.ConvertToBgr();
+            }
+            else if (ImageStorage.Type == 2)
+            {
+                image = ImageStorage.ConvertToHsv();
+            }
+            else if (ImageStorage.Type == 3)
+            {
+                image = ImageStorage.ConvertToGray();
+            }
+            else if (ImageStorage.Type == 4)
+            {
+                image = ImageStorage.ConvertToLab();
+            }
+
             var channels = image.Split();
 
-            var formRed = new ImageForm();
-            formRed.LoadImage(channels[2], $"{ImageStorage<Bgr>.Name}_RedChannel");
-
-            var formGreen = new ImageForm();
-            formGreen.LoadImage(channels[1], $"{ImageStorage<Bgr>.Name}_GreenChannel"); 
-
-            var formBlue = new ImageForm();
-            formBlue.LoadImage(channels[0], $"{ImageStorage<Bgr>.Name}_BlueChannel");
+            var formBlue = new ImageForm(channels[0], $"{ImageStorage.Name}_BlueChannel");
+            var formRed = new ImageForm(channels[2], $"{ImageStorage.Name}_RedChannel");
+            var formGreen = new ImageForm(channels[1], $"{ImageStorage.Name}_GreenChannel");
 
             _ = Task.Run(() => formRed.ShowDialog());
             _ = Task.Run(() => formGreen.ShowDialog());
             _ = Task.Run(() => formBlue.ShowDialog());
         }
 
-        private async void rGBToHSVToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void histogramTableGrayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var image = ImageStorage<Bgr>.Image;
-
-            var form = new ImageForm();
-            form.LoadImage(image.Convert<Hsv, byte>(), $"{ImageStorage<Bgr>.Name}_HSV");
-
+            ImageStorage.CalculateHistogram();
+            var form = new TableLUT_BW();
             await Task.Run(() => form.ShowDialog());
+        }
+
+        private async void tableLUTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageStorage.CalculateHistogram();
+            var form = new TableLUT_RGB();
+            await Task.Run(() => form.ShowDialog());
+        }
+
+        private async void histogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageStorage.CalculateHistogram();
+            var form = new HistogramForm();
+            await Task.Run(() => form.ShowDialog());
+        }
+
+        private async void histogramRGBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageStorage.CalculateHistogram();
+            var form = new HistogramFormRGB();
+            await Task.Run(() => form.ShowDialog());
+        }
+
+        private async void rGBToLABToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage.ConvertToLab();
+            ImageStorage.Form.AddImage(image);
+        }
+
+        private void toRGBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage.ConvertToBgr();
+            ImageStorage.Form.AddImage(image);
         }
     }
 }

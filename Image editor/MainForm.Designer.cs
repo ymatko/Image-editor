@@ -37,6 +37,7 @@
             this.toMonochromToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rGBToHSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rGBToLABToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramTableGrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +46,7 @@
             this.histogramRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.toRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,14 +81,14 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -99,9 +101,11 @@
             // imageToolStripMenuItem
             // 
             this.imageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toRGBToolStripMenuItem,
             this.toMonochromToolStripMenuItem,
-            this.splitChannelsToolStripMenuItem,
-            this.rGBToHSVToolStripMenuItem});
+            this.rGBToHSVToolStripMenuItem,
+            this.rGBToLABToolStripMenuItem,
+            this.splitChannelsToolStripMenuItem});
             this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
             this.imageToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
             this.imageToolStripMenuItem.Text = "Image";
@@ -110,7 +114,7 @@
             // 
             this.toMonochromToolStripMenuItem.Name = "toMonochromToolStripMenuItem";
             this.toMonochromToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.toMonochromToolStripMenuItem.Text = "To Gray";
+            this.toMonochromToolStripMenuItem.Text = "RGB to Gray";
             this.toMonochromToolStripMenuItem.Click += new System.EventHandler(this.toMonochromToolStripMenuItem_Click);
             // 
             // splitChannelsToolStripMenuItem
@@ -126,6 +130,13 @@
             this.rGBToHSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rGBToHSVToolStripMenuItem.Text = "RGB to HSV";
             this.rGBToHSVToolStripMenuItem.Click += new System.EventHandler(this.rGBToHSVToolStripMenuItem_Click);
+            // 
+            // rGBToLABToolStripMenuItem
+            // 
+            this.rGBToLABToolStripMenuItem.Name = "rGBToLABToolStripMenuItem";
+            this.rGBToLABToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rGBToLABToolStripMenuItem.Text = "RGB to LAB";
+            this.rGBToLABToolStripMenuItem.Click += new System.EventHandler(this.rGBToLABToolStripMenuItem_Click);
             // 
             // processToolStripMenuItem
             // 
@@ -149,24 +160,28 @@
             this.histogramTableGrayToolStripMenuItem.Name = "histogramTableGrayToolStripMenuItem";
             this.histogramTableGrayToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.histogramTableGrayToolStripMenuItem.Text = "Histogram Table Gray";
+            this.histogramTableGrayToolStripMenuItem.Click += new System.EventHandler(this.histogramTableGrayToolStripMenuItem_Click);
             // 
             // tableLUTToolStripMenuItem
             // 
             this.tableLUTToolStripMenuItem.Name = "tableLUTToolStripMenuItem";
             this.tableLUTToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.tableLUTToolStripMenuItem.Text = "Histogram Table RGB";
+            this.tableLUTToolStripMenuItem.Click += new System.EventHandler(this.tableLUTToolStripMenuItem_Click);
             // 
             // histogramToolStripMenuItem
             // 
             this.histogramToolStripMenuItem.Name = "histogramToolStripMenuItem";
             this.histogramToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.histogramToolStripMenuItem.Text = "Histogram Gray";
+            this.histogramToolStripMenuItem.Click += new System.EventHandler(this.histogramToolStripMenuItem_Click);
             // 
             // histogramRGBToolStripMenuItem
             // 
             this.histogramRGBToolStripMenuItem.Name = "histogramRGBToolStripMenuItem";
             this.histogramRGBToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.histogramRGBToolStripMenuItem.Text = "Histogram RGB";
+            this.histogramRGBToolStripMenuItem.Click += new System.EventHandler(this.histogramRGBToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
@@ -178,6 +193,13 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif\"";
+            // 
+            // toRGBToolStripMenuItem
+            // 
+            this.toRGBToolStripMenuItem.Name = "toRGBToolStripMenuItem";
+            this.toRGBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toRGBToolStripMenuItem.Text = "To RGB";
+            this.toRGBToolStripMenuItem.Click += new System.EventHandler(this.toRGBToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -215,6 +237,8 @@
         private System.Windows.Forms.ToolStripMenuItem rGBToHSVToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem histogramRGBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem histogramTableGrayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rGBToLABToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toRGBToolStripMenuItem;
     }
 }
 

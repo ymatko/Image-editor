@@ -18,18 +18,16 @@ namespace Image_editor
         public HistogramForm()
         {
             InitializeComponent();
-            //var image = new Image(ImageStatic.SelectedImageBgr);
-            //this.Text = $"Histogram of {ImageStatic.Name}";
-            //image.CalculateHistogram();
-            //List<double> imagehist = new List<double>();
-            //for (int i = 0; i < image.red.Length; i++)
-            //{
-            //    imagehist.Add(Convert.ToDouble(image.red[i]));
+            this.Text = $"Histogram of {ImageStorage.Name}";
+            List<double> imagehist = new List<double>();
+            for (int i = 0; i < ImageStorage.red.Length; i++)
+            {
+                imagehist.Add(Convert.ToDouble(ImageStorage.red[i]));
 
-            //}
-            //double[] doubles = imagehist.ToArray();
-            //formsPlot1.Plot.AddBar(doubles);
-            //formsPlot1.Refresh();
+            }
+            double[] doubles = imagehist.ToArray();
+            formsPlot1.Plot.AddBar(doubles);
+            formsPlot1.Refresh();
         }
     }
 }

@@ -15,16 +15,12 @@ namespace Image_editor
         public TableLUT_RGB()
         {
             InitializeComponent();
-            //var selectedImage = ImageStatic.SelectedImageBgr;
-            //this.Text = ImageStatic.Name;
-            //var image = new Image(selectedImage);
-            //image.CalculateHistogram();
-            //this.Text = $"LUT of {ImageStatic.Name}";
-            //for (int i = 0; i < 256; i++)
-            //{
-            //    string[] row = new string[] { $"{i}", $"{ image.red[i] }", $"{image.green[i]}", $"{image.blue[i]}" };
-            //    TableLUTView.Rows.Add(row);
-            //}
+            this.Text = $"Histogram of {ImageStorage.Name}";
+            for (int i = 0; i < 256; i++)
+            {
+                string[] row = new string[] { $"{i}", $"{ImageStorage.red[i]}", $"{ImageStorage.green[i]}", $"{ImageStorage.blue[i]}" };
+                TableLUTView.Rows.Add(row);
+            }
         }
     }
 }

@@ -17,65 +17,57 @@ using System.Xml.Linq;
 
 namespace Image_editor
 {
+    public delegate void AppendLogProc(dynamic img);
     public partial class ImageForm: Form
     {
-        private dynamic _image;
-        public ImageForm()
+        public DialogResult dialog;
+        public ImageForm(Image<Bgr, byte> img, string name)
         {
             InitializeComponent();
-        }
-        public void LoadImage<T>(string path, string name) where T : struct, IColor
-        {
-            _image = new Image<T, byte>(path);
-            imageBox1.Image = _image;
-            this.Size = new Size(_image.Width + 16, _image.Height + 55);
-            ImageInfoLabel.Text = _image.Width + " x " + _image.Height + " pixels";
+            imageBox1.Image = img;
+            this.Size = new Size(img.Width + 16, img.Height + 55);
+            ImageInfoLabel.Text = img.Width + " x " + img.Height + " pixels";
             this.Text = name;
             this.Activated += ImageForm_Activated;
         }
-        public void LoadImage(Image<Bgr, byte> bgrImage, string name)
+        public ImageForm(Image<Hsv, byte> img, string name)
         {
-            imageBox1.Image = bgrImage;
-            this.Size = new Size(bgrImage.Width + 16, bgrImage.Height + 55);
-            ImageInfoLabel.Text = bgrImage.Width + " x " + bgrImage.Height + " pixels";
+            InitializeComponent();
+            imageBox1.Image = img;
+            this.Size = new Size(img.Width + 16, img.Height + 55);
+            ImageInfoLabel.Text = img.Width + " x " + img.Height + " pixels";
             this.Text = name;
             this.Activated += ImageForm_Activated;
         }
-
-        public void LoadImage(Image<Hsv, byte> hsvImage, string name)
+        public ImageForm(Image<Gray, byte> img, string name)
         {
-            imageBox1.Image = hsvImage;
-            this.Size = new Size(hsvImage.Width + 16, hsvImage.Height + 55);
-            ImageInfoLabel.Text = hsvImage.Width + " x " + hsvImage.Height + " pixels";
+            InitializeComponent();
+            imageBox1.Image = img;
+            this.Size = new Size(img.Width + 16, img.Height + 55);
+            ImageInfoLabel.Text = img.Width + " x " + img.Height + " pixels";
             this.Text = name;
             this.Activated += ImageForm_Activated;
         }
-        public void LoadImage(Image<Gray, byte> hsvImage, string name)
+        public ImageForm(Image<Lab, byte> img, string name)
         {
-            imageBox1.Image = hsvImage;
-            this.Size = new Size(hsvImage.Width + 16, hsvImage.Height + 55);
-            ImageInfoLabel.Text = hsvImage.Width + " x " + hsvImage.Height + " pixels";
+            InitializeComponent();
+            imageBox1.Image = img;
+            this.Size = new Size(img.Width + 16, img.Height + 55);
+            ImageInfoLabel.Text = img.Width + " x " + img.Height + " pixels";
             this.Text = name;
             this.Activated += ImageForm_Activated;
+        }
+        public void AddImage(dynamic img)
+        {
+            if (InvokeRequired) Invoke(new AppendLogProc(AddImage), new object[] { img });
+            else this.imageBox1.Image = img;
         }
 
         private void ImageForm_Activated(object sender, EventArgs e)
         {
-            if (imageBox1.Image is Image<Bgr, byte> bgrImage)
-            {
-                ImageStorage<Bgr>.Image = bgrImage;
-                ImageStorage<Bgr>.Name = this.Text;
-            }
-            else if (imageBox1.Image is Image<Hsv, byte> hsvImage)
-            {
-                ImageStorage<Hsv>.Image = hsvImage;
-                ImageStorage<Hsv>.Name = this.Text;
-            }
-            else if (imageBox1.Image is Image<Gray, byte> grayImage)
-            {
-                ImageStorage<Gray>.Image = grayImage;
-                ImageStorage<Gray>.Name = this.Text;
-            }
+            ImageStorage.Form = this;
+            ImageStorage.Image = imageBox1.Image;
+            ImageStorage.Name = this.Text;
         }
     }
 }
