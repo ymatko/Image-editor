@@ -27,6 +27,7 @@ namespace Image_editor
             ImageChanged?.Invoke(null, EventArgs.Empty);
         }
         public static ImageForm Form { get; set; }
+        public static List<Point> Points { get; } = new List<Point>();
         private static int _type;
         public static int Type
         {

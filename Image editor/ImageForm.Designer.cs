@@ -54,6 +54,7 @@
             this.imageBox1.Size = new System.Drawing.Size(272, 208);
             this.imageBox1.TabIndex = 2;
             this.imageBox1.TabStop = false;
+            this.imageBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.imageBox1_MouseClick);
             // 
             // ImageForm
             // 

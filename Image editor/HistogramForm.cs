@@ -41,5 +41,11 @@ namespace Image_editor
             formsPlot1.Plot.Clear();
             RefreshForm();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int value = Convert.ToUInt16(textBox1.Text);
+            textBox2.Text = Convert.ToString(ImageStorage.red[value]);
+        }
     }
 }

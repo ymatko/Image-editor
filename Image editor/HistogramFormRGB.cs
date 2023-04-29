@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Image_editor
 {
@@ -67,6 +68,24 @@ namespace Image_editor
             formsPlotG.Plot.Clear(); 
             formsPlotB.Plot.Clear();
             RefreshForm();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int value = Convert.ToUInt16(textBox3.Text);
+            textBox4.Text = Convert.ToString(ImageStorage.red[value]);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int value = Convert.ToUInt16(textBox5.Text);
+            textBox6.Text = Convert.ToString(ImageStorage.green[value]);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int value = Convert.ToUInt16(textBox8.Text);
+            textBox7.Text = Convert.ToString(ImageStorage.blue[value]);
         }
     }
 }

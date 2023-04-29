@@ -32,3 +32,9 @@ C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.Histo
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.HistogramFormRGB.resources
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.TableLUT_BW.resources
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.TableLUT_RGB.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\NetTopologySuite.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.Buffers.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.Memory.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.exe.config
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.PlotProfileForm.resources

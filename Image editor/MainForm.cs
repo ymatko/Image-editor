@@ -26,6 +26,7 @@ namespace Image_editor
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                ImageStorage.Type = 1;
                 var image = new Image<Bgr, byte>(openFileDialog1.FileName);
                 var form = new ImageForm(image, openFileDialog1.SafeFileName);
                 await Task.Run(() => form.ShowDialog());
@@ -71,11 +72,31 @@ namespace Image_editor
         {
             var image = ImageStorage.ConvertToHsv();
             ImageStorage.Form.AddImage(image);
+
+            var channels = image.Split();
+
+            var formBlue = new ImageForm(channels[0], $"{ImageStorage.Name}_H Channel");
+            var formRed = new ImageForm(channels[2], $"{ImageStorage.Name}_S Channel");
+            var formGreen = new ImageForm(channels[1], $"{ImageStorage.Name}_V Channel");
+
+            _ = Task.Run(() => formRed.ShowDialog());
+            _ = Task.Run(() => formGreen.ShowDialog());
+            _ = Task.Run(() => formBlue.ShowDialog());
         }
         private void rGBToLABToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var image = ImageStorage.ConvertToLab();
             ImageStorage.Form.AddImage(image);
+
+            var channels = image.Split();
+
+            var formBlue = new ImageForm(channels[0], $"{ImageStorage.Name}_L Channel");
+            var formRed = new ImageForm(channels[2], $"{ImageStorage.Name}_A Channel");
+            var formGreen = new ImageForm(channels[1], $"{ImageStorage.Name}_B Channel");
+
+            _ = Task.Run(() => formRed.ShowDialog());
+            _ = Task.Run(() => formGreen.ShowDialog());
+            _ = Task.Run(() => formBlue.ShowDialog());
         }
 
         private void toRGBToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,5 +160,10 @@ namespace Image_editor
             await Task.Run(() => form.ShowDialog());
         }
 
+        private async void plotProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new PlotProfileForm();
+            await Task.Run(() => form.ShowDialog());
+        }
     }
 }

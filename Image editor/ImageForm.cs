@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Security.Cryptography;
 using System.Text;
@@ -68,6 +69,11 @@ namespace Image_editor
             ImageStorage.Form = this;
             ImageStorage.Image = imageBox1.Image;
             ImageStorage.Name = this.Text;
+        }
+        private void imageBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            var point = new Point(e.Location.X, e.Location.Y);
+            ImageStorage.Points.Add(point);
         }
     }
 }

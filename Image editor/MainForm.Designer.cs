@@ -47,6 +47,7 @@
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plotProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,7 +151,8 @@
             this.histogramTableGrayToolStripMenuItem,
             this.tableLUTToolStripMenuItem,
             this.histogramToolStripMenuItem,
-            this.histogramRGBToolStripMenuItem});
+            this.histogramRGBToolStripMenuItem,
+            this.plotProfileToolStripMenuItem});
             this.analyzeToolStripMenuItem.Name = "analyzeToolStripMenuItem";
             this.analyzeToolStripMenuItem.Size = new System.Drawing.Size(64, 21);
             this.analyzeToolStripMenuItem.Text = "Analyze";
@@ -201,6 +203,13 @@
             this.toRGBToolStripMenuItem.Text = "To RGB";
             this.toRGBToolStripMenuItem.Click += new System.EventHandler(this.toRGBToolStripMenuItem_Click);
             // 
+            // plotProfileToolStripMenuItem
+            // 
+            this.plotProfileToolStripMenuItem.Name = "plotProfileToolStripMenuItem";
+            this.plotProfileToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.plotProfileToolStripMenuItem.Text = "Plot profile";
+            this.plotProfileToolStripMenuItem.Click += new System.EventHandler(this.plotProfileToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,6 +248,7 @@
         private System.Windows.Forms.ToolStripMenuItem histogramTableGrayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rGBToLABToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toRGBToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem plotProfileToolStripMenuItem;
     }
 }
 
