@@ -1,5 +1,6 @@
 ﻿using Emgu.CV;
 using Emgu.CV.ImgHash;
+using Emgu.CV.Reg;
 using Emgu.CV.Structure;
 using Emgu.CV.UI;
 using ScottPlot.Plottable;
@@ -102,6 +103,88 @@ namespace Image_editor
                     blue[image.Data[y, x, 0]]++;
                 }
             }
+        }
+        //public static Image<Bgr, byte> Rozciaganie()
+        //{
+        //    Image<Bgr, byte> img = ConvertToGray();
+        //    UInt16[] redLUT = RozciaganieLUT(red);
+        //    UInt16[] greenLUT = RozciaganieLUT(green);
+        //    UInt16[] blueLUT = RozciaganieLUT(blue);
+
+        //    for (int x = 0; x < img.Width; x++)
+        //    {
+        //        for (int y = 0; y < img.Height; y++)
+        //        {
+        //            img.Data[y, x, 2] = (byte)redLUT[img.Data[y, x, 2]];
+        //            img.Data[y, x, 1] = (byte)greenLUT[img.Data[y, x, 1]];
+        //            img.Data[y, x, 0] = (byte)blueLUT[img.Data[y, x, 0]];
+        //        }
+        //    }
+        //    return img;
+        //}
+
+        //private static UInt16[] RozciaganieLUT(UInt16[] values)
+        //{
+        //    int min = 256;
+        //    for (int i = 0; i < 256; i++)
+        //    {
+        //        if (values[i] != 0)
+        //        {
+        //            min = i;
+        //            break;
+        //        }
+        //    }
+        //    int max = 255;
+        //    for (int i = 255; i >= 0; i--)
+        //    {
+        //        if (values[i] != 0)
+        //        {
+        //            max = i;
+        //            break;
+        //        }
+        //    }
+
+        //    UInt16[] result = new UInt16[256];
+        //    double a = 255.0 / (max - min);
+        //    for (int i = 0; i < 256; i++)
+        //    {
+        //        result[i] = (UInt16)(a * (i - min));
+        //    }
+        //    return result;
+        //}
+        public static Image<Gray, byte> Rozciaganie()
+        {
+            Image<Gray, byte> grayImage = Image.Convert<Gray, byte>();
+            int min = 256;
+            for (int i = 0; i < 256; i++)
+            {
+                if (red[i] != 0)
+                {
+                    min = i;
+                    break;
+                }
+            }
+            int max = 255;
+            for (int i = 255; i >= 0; i--)
+            {
+                if (red[i] != 0)
+                {
+                    max = i;
+                    break;
+                }
+            }
+            var stretchedImage = new Image<Gray, byte>(grayImage.Size);
+            for (int i = 0; i < grayImage.Rows; i++)
+            {
+                for (int j = 0; j < grayImage.Cols; j++)
+                {
+                    double oldValue = grayImage[i, j].Intensity;
+                    double newValue = (oldValue - min) * 255 / (max - min);
+
+                    stretchedImage[i, j] = new Gray(newValue);
+                }
+            }
+            return stretchedImage;
         }
     }
 }

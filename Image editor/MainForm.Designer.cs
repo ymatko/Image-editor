@@ -34,20 +34,21 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toMonochromToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rGBToHSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rGBToLABToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramTableGrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plotProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.toRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.plotProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stretchingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,10 +107,18 @@
             this.toMonochromToolStripMenuItem,
             this.rGBToHSVToolStripMenuItem,
             this.rGBToLABToolStripMenuItem,
-            this.splitChannelsToolStripMenuItem});
+            this.splitChannelsToolStripMenuItem,
+            this.stretchingToolStripMenuItem});
             this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
             this.imageToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
             this.imageToolStripMenuItem.Text = "Image";
+            // 
+            // toRGBToolStripMenuItem
+            // 
+            this.toRGBToolStripMenuItem.Name = "toRGBToolStripMenuItem";
+            this.toRGBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toRGBToolStripMenuItem.Text = "To RGB";
+            this.toRGBToolStripMenuItem.Click += new System.EventHandler(this.toRGBToolStripMenuItem_Click);
             // 
             // toMonochromToolStripMenuItem
             // 
@@ -117,13 +126,6 @@
             this.toMonochromToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.toMonochromToolStripMenuItem.Text = "RGB to Gray";
             this.toMonochromToolStripMenuItem.Click += new System.EventHandler(this.toMonochromToolStripMenuItem_Click);
-            // 
-            // splitChannelsToolStripMenuItem
-            // 
-            this.splitChannelsToolStripMenuItem.Name = "splitChannelsToolStripMenuItem";
-            this.splitChannelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.splitChannelsToolStripMenuItem.Text = "Split channels";
-            this.splitChannelsToolStripMenuItem.Click += new System.EventHandler(this.splitChannelsToolStripMenuItem_Click);
             // 
             // rGBToHSVToolStripMenuItem
             // 
@@ -138,6 +140,13 @@
             this.rGBToLABToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rGBToLABToolStripMenuItem.Text = "RGB to LAB";
             this.rGBToLABToolStripMenuItem.Click += new System.EventHandler(this.rGBToLABToolStripMenuItem_Click);
+            // 
+            // splitChannelsToolStripMenuItem
+            // 
+            this.splitChannelsToolStripMenuItem.Name = "splitChannelsToolStripMenuItem";
+            this.splitChannelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.splitChannelsToolStripMenuItem.Text = "Split channels";
+            this.splitChannelsToolStripMenuItem.Click += new System.EventHandler(this.splitChannelsToolStripMenuItem_Click);
             // 
             // processToolStripMenuItem
             // 
@@ -185,6 +194,13 @@
             this.histogramRGBToolStripMenuItem.Text = "Histogram RGB";
             this.histogramRGBToolStripMenuItem.Click += new System.EventHandler(this.histogramRGBToolStripMenuItem_Click);
             // 
+            // plotProfileToolStripMenuItem
+            // 
+            this.plotProfileToolStripMenuItem.Name = "plotProfileToolStripMenuItem";
+            this.plotProfileToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.plotProfileToolStripMenuItem.Text = "Plot profile";
+            this.plotProfileToolStripMenuItem.Click += new System.EventHandler(this.plotProfileToolStripMenuItem_Click);
+            // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
@@ -196,19 +212,12 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif\"";
             // 
-            // toRGBToolStripMenuItem
+            // stretchingToolStripMenuItem
             // 
-            this.toRGBToolStripMenuItem.Name = "toRGBToolStripMenuItem";
-            this.toRGBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.toRGBToolStripMenuItem.Text = "To RGB";
-            this.toRGBToolStripMenuItem.Click += new System.EventHandler(this.toRGBToolStripMenuItem_Click);
-            // 
-            // plotProfileToolStripMenuItem
-            // 
-            this.plotProfileToolStripMenuItem.Name = "plotProfileToolStripMenuItem";
-            this.plotProfileToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.plotProfileToolStripMenuItem.Text = "Plot profile";
-            this.plotProfileToolStripMenuItem.Click += new System.EventHandler(this.plotProfileToolStripMenuItem_Click);
+            this.stretchingToolStripMenuItem.Name = "stretchingToolStripMenuItem";
+            this.stretchingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stretchingToolStripMenuItem.Text = "Stretching";
+            this.stretchingToolStripMenuItem.Click += new System.EventHandler(this.stretchingToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -249,6 +258,7 @@
         private System.Windows.Forms.ToolStripMenuItem rGBToLABToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toRGBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem plotProfileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stretchingToolStripMenuItem;
     }
 }
 

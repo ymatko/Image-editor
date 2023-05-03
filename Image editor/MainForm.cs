@@ -165,5 +165,11 @@ namespace Image_editor
             var form = new PlotProfileForm();
             await Task.Run(() => form.ShowDialog());
         }
+
+        private void stretchingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage.Rozciaganie();
+            ImageStorage.Form.AddImage(image);
+        }
     }
 }
