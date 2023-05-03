@@ -171,5 +171,11 @@ namespace Image_editor
             var image = ImageStorage.Rozciaganie();
             ImageStorage.Form.AddImage(image);
         }
+
+        private void negationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage.Negation();
+            ImageStorage.Form.AddImage(image);
+        }
     }
 }
