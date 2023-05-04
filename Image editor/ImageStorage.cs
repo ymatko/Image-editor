@@ -104,13 +104,13 @@ namespace Image_editor
                 }
             }
         }
-        public static Image<Bgr, byte> Rozciaganie()
+        public static Image<Bgr, byte> Stretching()
         {
             var img = Image.Convert<Bgr, byte>();
             CalculateHistogram();
-            UInt16[] redLUT = RozciaganieLUT(red);
-            UInt16[] greenLUT = RozciaganieLUT(green);
-            UInt16[] blueLUT = RozciaganieLUT(blue);
+            UInt16[] redLUT = StretchingLUT(red);
+            UInt16[] greenLUT = StretchingLUT(green);
+            UInt16[] blueLUT = StretchingLUT(blue);
 
             for (int x = 0; x < img.Width; x++)
             {
@@ -124,7 +124,7 @@ namespace Image_editor
             return img;
         }
 
-        private static UInt16[] RozciaganieLUT(UInt16[] values)
+        private static UInt16[] StretchingLUT(UInt16[] values)
         {
             int min = 256;
             for (int i = 0; i < 256; i++)
@@ -164,6 +164,41 @@ namespace Image_editor
                     img.Data[y, x, 2] = (byte)(255 - img.Data[y, x, 2]);
                     img.Data[y, x, 1] = (byte)(255 - img.Data[y, x, 1]);
                     img.Data[y, x, 0] = (byte)(255 - img.Data[y, x, 0]);
+                }
+            }
+            return img;
+        }
+        public static Image<Gray, byte> Equalization()
+        {
+            Image<Gray, byte> img = Image.Convert<Gray, byte>();
+            var hist = new int[256];
+            for (int i = 0; i < img.Rows; i++)
+            {
+                for (int j = 0; j < img.Cols; j++)
+                {
+                    hist[(int)img[i, j].Intensity]++;
+                }
+            }
+
+            var cumHist = new int[256];
+            cumHist[0] = hist[0];
+            for (int i = 1; i < 256; i++)
+            {
+                cumHist[i] = cumHist[i - 1] + hist[i];
+            }
+
+            var transform = new int[256];
+            for (int i = 0; i < 256; i++)
+            {
+                transform[i] = (int)((cumHist[i] / (double)(img.Rows * img.Cols)) * 255 + 0.5);
+            }
+
+            for (int i = 0; i < img.Rows; i++)
+            {
+                for (int j = 0; j < img.Cols; j++)
+                {
+                    var intensity = img[i, j].Intensity;
+                    img[i, j] = new Gray(transform[(int)intensity]);
                 }
             }
             return img;

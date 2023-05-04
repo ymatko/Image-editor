@@ -168,13 +168,20 @@ namespace Image_editor
 
         private void stretchingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var image = ImageStorage.Rozciaganie();
+            var image = ImageStorage.Stretching();
             ImageStorage.Form.AddImage(image);
         }
 
         private void negationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var image = ImageStorage.Negation();
+            ImageStorage.Form.AddImage(image);
+        }
+
+        private void equalizationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            var image = ImageStorage.Equalization();
             ImageStorage.Form.AddImage(image);
         }
     }
