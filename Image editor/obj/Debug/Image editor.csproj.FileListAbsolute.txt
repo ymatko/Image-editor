@@ -38,3 +38,4 @@ C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.Memory.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.exe.config
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.PlotProfileForm.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.SelectValueForm.resources

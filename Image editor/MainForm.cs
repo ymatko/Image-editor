@@ -184,5 +184,13 @@ namespace Image_editor
             var image = ImageStorage.Equalization();
             ImageStorage.Form.AddImage(image);
         }
+
+        private void posterizationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectValueForm = new SelectValueForm();
+            selectValueForm.ShowDialog();
+            var image = ImageStorage.Posterization();
+            ImageStorage.Form.AddImage(image);
+        }
     }
 }

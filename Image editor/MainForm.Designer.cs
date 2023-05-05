@@ -40,6 +40,7 @@
             this.rGBToLABToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stretchingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.equalizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.negationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,7 @@
             this.plotProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.equalizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.posterizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,49 +120,57 @@
             // toRGBToolStripMenuItem
             // 
             this.toRGBToolStripMenuItem.Name = "toRGBToolStripMenuItem";
-            this.toRGBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toRGBToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.toRGBToolStripMenuItem.Text = "To RGB";
             this.toRGBToolStripMenuItem.Click += new System.EventHandler(this.toRGBToolStripMenuItem_Click);
             // 
             // toMonochromToolStripMenuItem
             // 
             this.toMonochromToolStripMenuItem.Name = "toMonochromToolStripMenuItem";
-            this.toMonochromToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toMonochromToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.toMonochromToolStripMenuItem.Text = "RGB to Gray";
             this.toMonochromToolStripMenuItem.Click += new System.EventHandler(this.toMonochromToolStripMenuItem_Click);
             // 
             // rGBToHSVToolStripMenuItem
             // 
             this.rGBToHSVToolStripMenuItem.Name = "rGBToHSVToolStripMenuItem";
-            this.rGBToHSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rGBToHSVToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.rGBToHSVToolStripMenuItem.Text = "RGB to HSV";
             this.rGBToHSVToolStripMenuItem.Click += new System.EventHandler(this.rGBToHSVToolStripMenuItem_Click);
             // 
             // rGBToLABToolStripMenuItem
             // 
             this.rGBToLABToolStripMenuItem.Name = "rGBToLABToolStripMenuItem";
-            this.rGBToLABToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rGBToLABToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.rGBToLABToolStripMenuItem.Text = "RGB to LAB";
             this.rGBToLABToolStripMenuItem.Click += new System.EventHandler(this.rGBToLABToolStripMenuItem_Click);
             // 
             // splitChannelsToolStripMenuItem
             // 
             this.splitChannelsToolStripMenuItem.Name = "splitChannelsToolStripMenuItem";
-            this.splitChannelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.splitChannelsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.splitChannelsToolStripMenuItem.Text = "Split channels";
             this.splitChannelsToolStripMenuItem.Click += new System.EventHandler(this.splitChannelsToolStripMenuItem_Click);
             // 
             // stretchingToolStripMenuItem
             // 
             this.stretchingToolStripMenuItem.Name = "stretchingToolStripMenuItem";
-            this.stretchingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stretchingToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.stretchingToolStripMenuItem.Text = "Stretching";
             this.stretchingToolStripMenuItem.Click += new System.EventHandler(this.stretchingToolStripMenuItem_Click);
+            // 
+            // equalizationToolStripMenuItem
+            // 
+            this.equalizationToolStripMenuItem.Name = "equalizationToolStripMenuItem";
+            this.equalizationToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.equalizationToolStripMenuItem.Text = "Equalization";
+            this.equalizationToolStripMenuItem.Click += new System.EventHandler(this.equalizationToolStripMenuItem_Click);
             // 
             // processToolStripMenuItem
             // 
             this.processToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.negationToolStripMenuItem});
+            this.negationToolStripMenuItem,
+            this.posterizationToolStripMenuItem});
             this.processToolStripMenuItem.Name = "processToolStripMenuItem";
             this.processToolStripMenuItem.Size = new System.Drawing.Size(65, 21);
             this.processToolStripMenuItem.Text = "Process";
@@ -169,7 +178,7 @@
             // negationToolStripMenuItem
             // 
             this.negationToolStripMenuItem.Name = "negationToolStripMenuItem";
-            this.negationToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.negationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.negationToolStripMenuItem.Text = "Negation";
             this.negationToolStripMenuItem.Click += new System.EventHandler(this.negationToolStripMenuItem_Click);
             // 
@@ -231,12 +240,12 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif\"";
             // 
-            // equalizationToolStripMenuItem
+            // posterizationToolStripMenuItem
             // 
-            this.equalizationToolStripMenuItem.Name = "equalizationToolStripMenuItem";
-            this.equalizationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.equalizationToolStripMenuItem.Text = "Equalization";
-            this.equalizationToolStripMenuItem.Click += new System.EventHandler(this.equalizationToolStripMenuItem_Click);
+            this.posterizationToolStripMenuItem.Name = "posterizationToolStripMenuItem";
+            this.posterizationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.posterizationToolStripMenuItem.Text = "Posterization";
+            this.posterizationToolStripMenuItem.Click += new System.EventHandler(this.posterizationToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -280,6 +289,7 @@
         private System.Windows.Forms.ToolStripMenuItem stretchingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem negationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem equalizationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem posterizationToolStripMenuItem;
     }
 }
 

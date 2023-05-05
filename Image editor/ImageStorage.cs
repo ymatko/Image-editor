@@ -21,6 +21,7 @@ namespace Image_editor
         public static event EventHandler ImageChanged;
 
         public static dynamic Image { get; set; }
+        public static int ValueImageProcessing { get; set; }
 
 
         public static void OnImageChanged()
@@ -199,6 +200,22 @@ namespace Image_editor
                 {
                     var intensity = img[i, j].Intensity;
                     img[i, j] = new Gray(transform[(int)intensity]);
+                }
+            }
+            return img;
+        }
+
+        public static Image<Bgr, byte> Posterization()
+        {
+            Image<Bgr, byte> img = Image.Convert<Bgr, byte>();
+            for (int x = 0; x < img.Width; x++)
+            {
+                for (int y = 0; y < img.Height; y++)
+                {
+                    int g = 255 / (ValueImageProcessing);
+                    img.Data[y, x, 2] = (byte)(Math.Floor((double)img.Data[y, x, 2] / g) * g);
+                    img.Data[y, x, 1] = (byte)(Math.Floor((double)img.Data[y, x, 1] / g) * g);
+                    img.Data[y, x, 0] = (byte)(Math.Floor((double)img.Data[y, x, 0] / g) * g);
                 }
             }
             return img;
