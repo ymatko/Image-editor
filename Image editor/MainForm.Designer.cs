@@ -53,6 +53,12 @@
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.selectiveStretchingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.duplicateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edgeDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.laplacianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cannyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +84,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
+            this.duplicateToolStripMenuItem,
             this.saveToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -172,7 +179,9 @@
             this.processToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.negationToolStripMenuItem,
             this.posterizationToolStripMenuItem,
-            this.selectiveStretchingToolStripMenuItem});
+            this.selectiveStretchingToolStripMenuItem,
+            this.blurToolStripMenuItem,
+            this.edgeDetectionToolStripMenuItem});
             this.processToolStripMenuItem.Name = "processToolStripMenuItem";
             this.processToolStripMenuItem.Size = new System.Drawing.Size(65, 21);
             this.processToolStripMenuItem.Text = "Process";
@@ -256,6 +265,49 @@
             this.selectiveStretchingToolStripMenuItem.Text = "Selective stretching";
             this.selectiveStretchingToolStripMenuItem.Click += new System.EventHandler(this.selectiveStretchingToolStripMenuItem_Click);
             // 
+            // blurToolStripMenuItem
+            // 
+            this.blurToolStripMenuItem.Name = "blurToolStripMenuItem";
+            this.blurToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.blurToolStripMenuItem.Text = "Blur";
+            this.blurToolStripMenuItem.Click += new System.EventHandler(this.blurToolStripMenuItem_Click);
+            // 
+            // duplicateToolStripMenuItem
+            // 
+            this.duplicateToolStripMenuItem.Name = "duplicateToolStripMenuItem";
+            this.duplicateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.duplicateToolStripMenuItem.Text = "Duplicate";
+            this.duplicateToolStripMenuItem.Click += new System.EventHandler(this.duplicateToolStripMenuItem_Click);
+            // 
+            // edgeDetectionToolStripMenuItem
+            // 
+            this.edgeDetectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sobelToolStripMenuItem1,
+            this.laplacianToolStripMenuItem,
+            this.cannyToolStripMenuItem1});
+            this.edgeDetectionToolStripMenuItem.Name = "edgeDetectionToolStripMenuItem";
+            this.edgeDetectionToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.edgeDetectionToolStripMenuItem.Text = "Edge detection";
+            // 
+            // sobelToolStripMenuItem1
+            // 
+            this.sobelToolStripMenuItem1.Name = "sobelToolStripMenuItem1";
+            this.sobelToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sobelToolStripMenuItem1.Text = "Sobel";
+            this.sobelToolStripMenuItem1.Click += new System.EventHandler(this.sobelToolStripMenuItem1_Click);
+            // 
+            // laplacianToolStripMenuItem
+            // 
+            this.laplacianToolStripMenuItem.Name = "laplacianToolStripMenuItem";
+            this.laplacianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.laplacianToolStripMenuItem.Text = "Laplacian";
+            // 
+            // cannyToolStripMenuItem1
+            // 
+            this.cannyToolStripMenuItem1.Name = "cannyToolStripMenuItem1";
+            this.cannyToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cannyToolStripMenuItem1.Text = "Canny";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +352,12 @@
         private System.Windows.Forms.ToolStripMenuItem equalizationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem posterizationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectiveStretchingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem blurToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem duplicateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem edgeDetectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobelToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem laplacianToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cannyToolStripMenuItem1;
     }
 }
 

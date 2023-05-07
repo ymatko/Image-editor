@@ -3,6 +3,7 @@ using Emgu.CV.ImgHash;
 using Emgu.CV.Reg;
 using Emgu.CV.Structure;
 using Emgu.CV.UI;
+using ScottPlot.Drawing.Colormaps;
 using ScottPlot.Plottable;
 using System;
 using System.Collections.Generic;
@@ -242,7 +243,29 @@ namespace Image_editor
                     img.Data[y, x, 0] = (byte)(mine + ((float)img.Data[y, x, 0] - minb) * (maxe - mine) / (maxb - mine));
                 }
             }
+            ValueImageProcessing1 = 0;
+            ValueImageProcessing2 = 0;
+            ValueImageProcessing3 = 0;
+            ValueImageProcessing4 = 0;
             return img;
+        }
+        public static Image<Bgr, byte> Blur()
+        {
+            Image<Bgr, byte> img = Image.Convert<Bgr, byte>();
+            img = img.SmoothBlur(ValueImageProcessing1, ValueImageProcessing1);
+            return img;
+        }
+        public static Image<Bgr, byte> Sobel1()
+        {
+            Image<Gray, float> img = Image.Convert<Gray, float>();
+            CvInvoke.Sobel(img, img, Emgu.CV.CvEnum.DepthType.Cv32F, 1, 0, 5);
+            return img.Convert<Bgr, byte>();
+        }
+        public static Image<Bgr, byte> Sobel2()
+        {
+            Image<Gray, float> img = Image.Convert<Gray, float>();
+            CvInvoke.Sobel(img, img, Emgu.CV.CvEnum.DepthType.Cv32F, 0, 1, 5);
+            return img.Convert<Bgr, byte>();
         }
     }
 }

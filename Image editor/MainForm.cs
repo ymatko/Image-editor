@@ -32,6 +32,11 @@ namespace Image_editor
                 await Task.Run(() => form.ShowDialog());
             }
         }
+        private async void duplicateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new ImageForm(ImageStorage.Image, ImageStorage.Name);
+            await Task.Run(() => form.ShowDialog());
+        }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -199,6 +204,26 @@ namespace Image_editor
             selectValueForm.ShowDialog();
             var image = ImageStorage.SelectiveStretching();
             ImageStorage.Form.AddImage(image);
+        }
+
+        private void blurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectValueForm = new SelectValueForm();
+            selectValueForm.ShowDialog();
+            var image = ImageStorage.Blur();
+            ImageStorage.Form.AddImage(image);
+        }
+
+        private void sobelToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage.Sobel1();
+            var image2 = ImageStorage.Sobel2();
+
+            var sobel1 = new ImageForm(image, $"{ImageStorage.Name}_Sobel1");
+            var sobel2 = new ImageForm(image2, $"{ImageStorage.Name}_Sobel2");
+
+            _ = Task.Run(() => sobel1.ShowDialog());
+            _ = Task.Run(() => sobel2.ShowDialog());
         }
     }
 }
