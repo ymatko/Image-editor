@@ -192,5 +192,13 @@ namespace Image_editor
             var image = ImageStorage.Posterization();
             ImageStorage.Form.AddImage(image);
         }
+
+        private void selectiveStretchingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectValueForm = new Select4ValueForm();
+            selectValueForm.ShowDialog();
+            var image = ImageStorage.SelectiveStretching();
+            ImageStorage.Form.AddImage(image);
+        }
     }
 }

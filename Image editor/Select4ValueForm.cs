@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Image_editor
 {
-    public partial class SelectValueForm : Form
+    public partial class Select4ValueForm : Form
     {
-        public SelectValueForm()
+        public Select4ValueForm()
         {
             InitializeComponent();
         }
@@ -20,6 +20,9 @@ namespace Image_editor
         private void button1_Click(object sender, EventArgs e)
         {
             ImageStorage.ValueImageProcessing1 = Convert.ToInt32(textBox1.Text);
+            ImageStorage.ValueImageProcessing2 = Convert.ToInt32(textBox2.Text);
+            ImageStorage.ValueImageProcessing3 = Convert.ToInt32(textBox3.Text);
+            ImageStorage.ValueImageProcessing4 = Convert.ToInt32(textBox4.Text);
             this.Close();
         }
     }

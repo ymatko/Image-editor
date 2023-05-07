@@ -21,7 +21,11 @@ namespace Image_editor
         public static event EventHandler ImageChanged;
 
         public static dynamic Image { get; set; }
-        public static int ValueImageProcessing { get; set; }
+        public static int ValueImageProcessing1 { get; set; }
+        public static int ValueImageProcessing2 { get; set; }
+        public static int ValueImageProcessing3 { get; set; }
+        public static int ValueImageProcessing4 { get; set; }
+
 
 
         public static void OnImageChanged()
@@ -212,10 +216,30 @@ namespace Image_editor
             {
                 for (int y = 0; y < img.Height; y++)
                 {
-                    int g = 255 / (ValueImageProcessing);
+                    int g = 255 / (ValueImageProcessing1);
                     img.Data[y, x, 2] = (byte)(Math.Floor((double)img.Data[y, x, 2] / g) * g);
                     img.Data[y, x, 1] = (byte)(Math.Floor((double)img.Data[y, x, 1] / g) * g);
                     img.Data[y, x, 0] = (byte)(Math.Floor((double)img.Data[y, x, 0] / g) * g);
+                }
+            }
+            ValueImageProcessing1 = 0;
+            return img;
+        }
+        public static Image<Bgr, byte> SelectiveStretching()
+        {
+            Image<Bgr, byte> img = Image.Convert<Bgr, byte>();
+            float minb = ValueImageProcessing1;
+            float maxb = ValueImageProcessing2;
+            float mine = ValueImageProcessing3;
+            float maxe = ValueImageProcessing4;
+
+            for (int x = 0; x < img.Width; x++)
+            {
+                for (int y = 0; y < img.Height; y++)
+                {
+                    img.Data[y, x, 2] = (byte)(mine + ((float)img.Data[y, x, 2] - minb) * (maxe - mine) / (maxb - mine));
+                    img.Data[y, x, 1] = (byte)(mine + ((float)img.Data[y, x, 1] - minb) * (maxe - mine) / (maxb - mine));
+                    img.Data[y, x, 0] = (byte)(mine + ((float)img.Data[y, x, 0] - minb) * (maxe - mine) / (maxb - mine));
                 }
             }
             return img;

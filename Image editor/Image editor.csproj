@@ -65,6 +65,12 @@
     <Compile Include="PlotProfileForm.Designer.cs">
       <DependentUpon>PlotProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Select4ValueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Select4ValueForm.Designer.cs">
+      <DependentUpon>Select4ValueForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SelectValueForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PlotProfileForm.resx">
       <DependentUpon>PlotProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Select4ValueForm.resx">
+      <DependentUpon>Select4ValueForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectValueForm.resx">
       <DependentUpon>SelectValueForm.cs</DependentUpon>

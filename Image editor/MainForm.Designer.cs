@@ -43,6 +43,7 @@
             this.equalizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.negationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.posterizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramTableGrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,7 @@
             this.plotProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.posterizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectiveStretchingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -170,7 +171,8 @@
             // 
             this.processToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.negationToolStripMenuItem,
-            this.posterizationToolStripMenuItem});
+            this.posterizationToolStripMenuItem,
+            this.selectiveStretchingToolStripMenuItem});
             this.processToolStripMenuItem.Name = "processToolStripMenuItem";
             this.processToolStripMenuItem.Size = new System.Drawing.Size(65, 21);
             this.processToolStripMenuItem.Text = "Process";
@@ -178,9 +180,16 @@
             // negationToolStripMenuItem
             // 
             this.negationToolStripMenuItem.Name = "negationToolStripMenuItem";
-            this.negationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.negationToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.negationToolStripMenuItem.Text = "Negation";
             this.negationToolStripMenuItem.Click += new System.EventHandler(this.negationToolStripMenuItem_Click);
+            // 
+            // posterizationToolStripMenuItem
+            // 
+            this.posterizationToolStripMenuItem.Name = "posterizationToolStripMenuItem";
+            this.posterizationToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.posterizationToolStripMenuItem.Text = "Posterization";
+            this.posterizationToolStripMenuItem.Click += new System.EventHandler(this.posterizationToolStripMenuItem_Click);
             // 
             // analyzeToolStripMenuItem
             // 
@@ -240,12 +249,12 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif\"";
             // 
-            // posterizationToolStripMenuItem
+            // selectiveStretchingToolStripMenuItem
             // 
-            this.posterizationToolStripMenuItem.Name = "posterizationToolStripMenuItem";
-            this.posterizationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.posterizationToolStripMenuItem.Text = "Posterization";
-            this.posterizationToolStripMenuItem.Click += new System.EventHandler(this.posterizationToolStripMenuItem_Click);
+            this.selectiveStretchingToolStripMenuItem.Name = "selectiveStretchingToolStripMenuItem";
+            this.selectiveStretchingToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.selectiveStretchingToolStripMenuItem.Text = "Selective stretching";
+            this.selectiveStretchingToolStripMenuItem.Click += new System.EventHandler(this.selectiveStretchingToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -290,6 +299,7 @@
         private System.Windows.Forms.ToolStripMenuItem negationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem equalizationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem posterizationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectiveStretchingToolStripMenuItem;
     }
 }
 
