@@ -301,12 +301,14 @@
             this.laplacianToolStripMenuItem.Name = "laplacianToolStripMenuItem";
             this.laplacianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.laplacianToolStripMenuItem.Text = "Laplacian";
+            this.laplacianToolStripMenuItem.Click += new System.EventHandler(this.laplacianToolStripMenuItem_Click);
             // 
             // cannyToolStripMenuItem1
             // 
             this.cannyToolStripMenuItem1.Name = "cannyToolStripMenuItem1";
             this.cannyToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.cannyToolStripMenuItem1.Text = "Canny";
+            this.cannyToolStripMenuItem1.Click += new System.EventHandler(this.cannyToolStripMenuItem1_Click);
             // 
             // MainForm
             // 

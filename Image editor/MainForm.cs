@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Emgu.CV.ML;
+using ScottPlot.Drawing.Colormaps;
 
 namespace Image_editor
 {
@@ -224,6 +225,21 @@ namespace Image_editor
 
             _ = Task.Run(() => sobel1.ShowDialog());
             _ = Task.Run(() => sobel2.ShowDialog());
+        }
+
+        private void laplacianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage.ConvertToBgr();
+            image.ConvertFrom(image.Laplace(3));
+            ImageStorage.Form.AddImage(image);
+        }
+
+        private void cannyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Image<Gray, byte> image = ImageStorage.ConvertToBgr().Copy().Convert<Gray, byte>();
+            CvInvoke.Canny(ImageStorage.ConvertToBgr(), image, 100, 200, 3);
+            ImageStorage.ConvertToBgr().ConvertFrom(image);
+            ImageStorage.Form.AddImage(image);
         }
     }
 }
