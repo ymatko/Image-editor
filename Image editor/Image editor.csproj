@@ -59,6 +59,12 @@
     <Compile Include="HistogramFormRGB.Designer.cs">
       <DependentUpon>HistogramFormRGB.cs</DependentUpon>
     </Compile>
+    <Compile Include="MatrixKernel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatrixKernel.Designer.cs">
+      <DependentUpon>MatrixKernel.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlotProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HistogramFormRGB.resx">
       <DependentUpon>HistogramFormRGB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatrixKernel.resx">
+      <DependentUpon>MatrixKernel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlotProfileForm.resx">
       <DependentUpon>PlotProfileForm.cs</DependentUpon>

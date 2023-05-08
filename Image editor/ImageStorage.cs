@@ -1,4 +1,5 @@
 ﻿using Emgu.CV;
+using Emgu.CV.CvEnum;
 using Emgu.CV.ImgHash;
 using Emgu.CV.Reg;
 using Emgu.CV.Structure;
@@ -27,7 +28,8 @@ namespace Image_editor
         public static int ValueImageProcessing3 { get; set; }
         public static int ValueImageProcessing4 { get; set; }
 
-
+        public static float[,] Matrix3 = new float[3, 3];
+        public static BorderType BorderType { get; set; }
 
         public static void OnImageChanged()
         {

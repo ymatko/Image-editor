@@ -241,5 +241,15 @@ namespace Image_editor
             ImageStorage.ConvertToBgr().ConvertFrom(image);
             ImageStorage.Form.AddImage(image);
         }
+
+        private void kernelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new MatrixKernel();
+            form.ShowDialog();
+            var image = ImageStorage.ConvertToBgr();
+            ConvolutionKernelF matrixKernel = new ConvolutionKernelF(ImageStorage.Matrix3);
+            CvInvoke.Filter2D(image, image, matrixKernel, new Point(-1, -1), borderType: ImageStorage.BorderType);
+            ImageStorage.Form.AddImage(image);
+        }
     }
 }

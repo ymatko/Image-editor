@@ -40,3 +40,4 @@ C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image editor.exe.c
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.PlotProfileForm.resources
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.SelectValueForm.resources
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.Select4ValueForm.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.MatrixKernel.resources
