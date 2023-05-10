@@ -65,6 +65,12 @@
     <Compile Include="MatrixKernel.Designer.cs">
       <DependentUpon>MatrixKernel.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedianBlurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedianBlurForm.Designer.cs">
+      <DependentUpon>MedianBlurForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlotProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MatrixKernel.resx">
       <DependentUpon>MatrixKernel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedianBlurForm.resx">
+      <DependentUpon>MedianBlurForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlotProfileForm.resx">
       <DependentUpon>PlotProfileForm.cs</DependentUpon>

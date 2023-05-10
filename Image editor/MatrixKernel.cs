@@ -180,7 +180,7 @@ namespace Image_editor
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            ImageStorage.BorderType = Emgu.CV.CvEnum.BorderType.Default;
+            ImageStorage.BorderType = Emgu.CV.CvEnum.BorderType.Isolated;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)

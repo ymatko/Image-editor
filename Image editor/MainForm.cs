@@ -251,5 +251,14 @@ namespace Image_editor
             CvInvoke.Filter2D(image, image, matrixKernel, new Point(-1, -1), borderType: ImageStorage.BorderType);
             ImageStorage.Form.AddImage(image);
         }
+
+        private void medianFiltrToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new MedianBlurForm();
+            form.ShowDialog();
+            var image = ImageStorage.ConvertToBgr();
+            CvInvoke.MedianBlur(image, image, ImageStorage.ValueImageProcessing1);
+            ImageStorage.Form.AddImage(image);
+        }
     }
 }
