@@ -1,4 +1,5 @@
 ﻿using Emgu.CV;
+using Emgu.CV.Aruco;
 using Emgu.CV.CvEnum;
 using Emgu.CV.ImgHash;
 using Emgu.CV.Reg;
@@ -10,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,36 +22,18 @@ namespace Image_editor
 {
     internal static class ImageStorage
     {
-        public static event EventHandler ImageChanged;
-
         public static dynamic Image { get; set; }
-        public static int ValueImageProcessing1 { get; set; }
-        public static int ValueImageProcessing2 { get; set; }
-        public static int ValueImageProcessing3 { get; set; }
-        public static int ValueImageProcessing4 { get; set; }
+        public static double ValueImageProcessing1 { get; set; }
+        public static double ValueImageProcessing2 { get; set; }
+        public static double ValueImageProcessing3 { get; set; }
+        public static double ValueImageProcessing4 { get; set; }
 
         public static float[,] Matrix3 = new float[3, 3];
         public static BorderType BorderType { get; set; }
 
-        public static void OnImageChanged()
-        {
-            ImageChanged?.Invoke(null, EventArgs.Empty);
-        }
         public static ImageForm Form { get; set; }
         public static List<Point> Points { get; } = new List<Point>();
-        private static int _type;
-        public static int Type
-        {
-            get => _type;
-            set
-            {
-                if(_type != value)
-                {
-                    _type = value;
-                    OnImageChanged();
-                }
-            }
-        }
+        public static int Type { get; set; }
         // 1 - Bgr
         // 2 - Hsv
         // 3 - Gray
@@ -219,7 +203,7 @@ namespace Image_editor
             {
                 for (int y = 0; y < img.Height; y++)
                 {
-                    int g = 255 / (ValueImageProcessing1);
+                    int g = 255 / ((int)ValueImageProcessing1);
                     img.Data[y, x, 2] = (byte)(Math.Floor((double)img.Data[y, x, 2] / g) * g);
                     img.Data[y, x, 1] = (byte)(Math.Floor((double)img.Data[y, x, 1] / g) * g);
                     img.Data[y, x, 0] = (byte)(Math.Floor((double)img.Data[y, x, 0] / g) * g);
@@ -231,10 +215,10 @@ namespace Image_editor
         public static Image<Bgr, byte> SelectiveStretching()
         {
             Image<Bgr, byte> img = Image.Convert<Bgr, byte>();
-            float minb = ValueImageProcessing1;
-            float maxb = ValueImageProcessing2;
-            float mine = ValueImageProcessing3;
-            float maxe = ValueImageProcessing4;
+            float minb = (int)ValueImageProcessing1;
+            float maxb = (int)ValueImageProcessing2;
+            float mine = (int)ValueImageProcessing3;
+            float maxe = (int)ValueImageProcessing4;
 
             for (int x = 0; x < img.Width; x++)
             {
@@ -254,7 +238,7 @@ namespace Image_editor
         public static Image<Bgr, byte> Blur()
         {
             Image<Bgr, byte> img = Image.Convert<Bgr, byte>();
-            img = img.SmoothBlur(ValueImageProcessing1, ValueImageProcessing1);
+            img = img.SmoothBlur((int)ValueImageProcessing1, (int)ValueImageProcessing1);
             return img;
         }
         public static Image<Bgr, byte> Sobel1()

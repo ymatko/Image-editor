@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlendingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlendingForm.Designer.cs">
+      <DependentUpon>BlendingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HistogramForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BlendingForm.resx">
+      <DependentUpon>BlendingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HistogramForm.resx">
       <DependentUpon>HistogramForm.cs</DependentUpon>
     </EmbeddedResource>

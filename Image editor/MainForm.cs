@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Emgu.CV.ML;
 using ScottPlot.Drawing.Colormaps;
+using ScottPlot.Palettes;
 
 namespace Image_editor
 {
@@ -25,6 +26,7 @@ namespace Image_editor
 
         private async void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 ImageStorage.Type = 1;
@@ -33,9 +35,11 @@ namespace Image_editor
                 await Task.Run(() => form.ShowDialog());
             }
         }
+        int number;
         private async void duplicateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new ImageForm(ImageStorage.Image, ImageStorage.Name);
+           number++;
+           var form = new ImageForm(ImageStorage.Image, $"{ImageStorage.Name}_{number}");
             await Task.Run(() => form.ShowDialog());
         }
 
@@ -257,8 +261,44 @@ namespace Image_editor
             var form = new MedianBlurForm();
             form.ShowDialog();
             var image = ImageStorage.ConvertToBgr();
-            CvInvoke.MedianBlur(image, image, ImageStorage.ValueImageProcessing1);
+            CvInvoke.MedianBlur(image, image, (int)ImageStorage.ValueImageProcessing1);
             ImageStorage.Form.AddImage(image);
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image<Bgr, byte> secondimage = null;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                secondimage = new Image<Bgr, byte>(openFileDialog1.FileName);
+                var image = ImageStorage.ConvertToBgr();
+                secondimage = secondimage.Resize(image.Width, image.Height, Emgu.CV.CvEnum.Inter.Nearest);
+                CvInvoke.Add(image, secondimage, secondimage);
+                var form = new ImageForm(secondimage, $"{ImageStorage.Name} + {openFileDialog1.SafeFileName}");
+                Task.Run(() => form.ShowDialog());
+            }
+        }
+
+        private void subToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image<Bgr, byte> secondimage = null;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                secondimage = new Image<Bgr, byte>(openFileDialog1.FileName);
+                var image = ImageStorage.ConvertToBgr();
+                secondimage = secondimage.Resize(image.Width, image.Height, Emgu.CV.CvEnum.Inter.Nearest);
+                secondimage = image.Sub(secondimage);
+                var form = new ImageForm(secondimage, $"{ImageStorage.Name} - {openFileDialog1.SafeFileName}");
+                Task.Run(() => form.ShowDialog());
+            }
+        }
+
+        private void blendingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Image<Bgr, byte> secondimage = null;
+            var form1 = new BlendingForm();
+            Task.Run(() => form1.ShowDialog());
+            
         }
     }
 }

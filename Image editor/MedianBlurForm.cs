@@ -15,6 +15,8 @@ namespace Image_editor
         public MedianBlurForm()
         {
             InitializeComponent();
+            ImageStorage.ValueImageProcessing1 = 3;
+            ImageStorage.BorderType = Emgu.CV.CvEnum.BorderType.Default;
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)

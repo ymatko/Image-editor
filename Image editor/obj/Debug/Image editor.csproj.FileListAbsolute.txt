@@ -42,3 +42,4 @@ C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.Selec
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.Select4ValueForm.resources
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.MatrixKernel.resources
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.MedianBlurForm.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.BlendingForm.resources
