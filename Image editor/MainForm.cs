@@ -312,5 +312,59 @@ namespace Image_editor
                 await Task.Run(() => form.ShowDialog());
             }
         }
+
+        private void aNDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage.BgrToBinary();
+            Image<Bgr, byte> img = null;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                img = new Image<Bgr, byte>(openFileDialog1.FileName);
+                var secondimage = img.Convert<Gray, byte>().ThresholdBinary(new Gray(127), new Gray(255));
+                secondimage = secondimage.Resize(image.Width, image.Height, Emgu.CV.CvEnum.Inter.Nearest);
+
+                CvInvoke.BitwiseAnd(image, secondimage, image);
+                secondimage.ConvertFrom(image);
+
+                var form = new ImageForm(secondimage, $"{ImageStorage.Name} AND {openFileDialog1.SafeFileName}");
+                Task.Run(() => form.ShowDialog());
+            }
+        }
+
+        private void oRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage.BgrToBinary();
+            Image<Bgr, byte> img = null;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                img = new Image<Bgr, byte>(openFileDialog1.FileName);
+                var secondimage = img.Convert<Gray, byte>().ThresholdBinary(new Gray(127), new Gray(255));
+                secondimage = secondimage.Resize(image.Width, image.Height, Emgu.CV.CvEnum.Inter.Nearest);
+
+                CvInvoke.BitwiseOr(image, secondimage, image);
+                secondimage.ConvertFrom(image);
+
+                var form = new ImageForm(secondimage, $"{ImageStorage.Name} OR {openFileDialog1.SafeFileName}");
+                Task.Run(() => form.ShowDialog());
+            }
+        }
+
+        private void xORToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var image = ImageStorage.BgrToBinary();
+            Image<Bgr, byte> img = null;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                img = new Image<Bgr, byte>(openFileDialog1.FileName);
+                var secondimage = img.Convert<Gray, byte>().ThresholdBinary(new Gray(127), new Gray(255));
+                secondimage = secondimage.Resize(image.Width, image.Height, Emgu.CV.CvEnum.Inter.Nearest);
+
+                CvInvoke.BitwiseXor(image, secondimage, image);
+                secondimage.ConvertFrom(image);
+
+                var form = new ImageForm(secondimage, $"{ImageStorage.Name} AND {openFileDialog1.SafeFileName}");
+                Task.Run(() => form.ShowDialog());
+            }
+        }
     }
 }

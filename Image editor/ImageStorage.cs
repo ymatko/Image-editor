@@ -253,5 +253,9 @@ namespace Image_editor
             CvInvoke.Sobel(img, img, Emgu.CV.CvEnum.DepthType.Cv32F, 0, 1, 5);
             return img.Convert<Bgr, byte>();
         }
+        public static Image<Gray, byte> BgrToBinary()
+        {
+            return Image.Convert<Gray, byte>().ThresholdBinary(new Gray(127), new Gray(255));
+        }
     }
 }
