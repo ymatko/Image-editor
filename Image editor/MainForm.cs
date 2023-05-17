@@ -293,12 +293,24 @@ namespace Image_editor
             }
         }
 
-        private void blendingToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void blendingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Image<Bgr, byte> secondimage = null;
+            Image<Bgr, byte> secondimage = null;
             var form1 = new BlendingForm();
-            Task.Run(() => form1.ShowDialog());
-            
+            await Task.Run(() => form1.ShowDialog());
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                secondimage = new Image<Bgr, byte>(openFileDialog1.FileName);
+                var image = ImageStorage.ConvertToBgr();
+                secondimage = secondimage.Resize(image.Width, image.Height, Emgu.CV.CvEnum.Inter.Nearest);
+                var blendedImage = new Image<Bgr, byte>(image.Size);
+                double alpha = ImageStorage.ValueImageProcessing1; // Weight for the first image
+                double beta = ImageStorage.ValueImageProcessing2; // Weight for the second image
+                double gamma = ImageStorage.ValueImageProcessing3; // Scalar added to each sum
+                CvInvoke.AddWeighted(image, alpha, secondimage, beta, gamma, blendedImage);
+                var form = new ImageForm(blendedImage, $"{ImageStorage.Name} blended {openFileDialog1.SafeFileName}");
+                await Task.Run(() => form.ShowDialog());
+            }
         }
     }
 }
