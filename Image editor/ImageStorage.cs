@@ -257,5 +257,35 @@ namespace Image_editor
         {
             return Image.Convert<Gray, byte>().ThresholdBinary(new Gray(127), new Gray(255));
         }
+        public static void MorphologyErode()
+        {
+            var image = BgrToBinary();
+            Mat elem;
+            if (ValueImageProcessing1 == 1)
+            {
+                elem = CvInvoke.GetStructuringElement(Emgu.CV.CvEnum.ElementShape.Rectangle, new Size(3, 3), new Point(1, 1));
+            }
+            else
+            {
+                elem = CvInvoke.GetStructuringElement(Emgu.CV.CvEnum.ElementShape.Cross, new Size(3, 3), new Point(1, 1));
+            }
+            CvInvoke.Erode(image, image, elem, new Point(-1, -1), 1, BorderType, new MCvScalar(0.0));
+            Form.AddImage(image);
+        }
+        public static void MorphologyDilate()
+        {
+            var image = BgrToBinary();
+            Mat elem;
+            if (ValueImageProcessing1 == 1)
+            {
+                elem = CvInvoke.GetStructuringElement(Emgu.CV.CvEnum.ElementShape.Rectangle, new Size(3, 3), new Point(1, 1));
+            }
+            else
+            {
+                elem = CvInvoke.GetStructuringElement(Emgu.CV.CvEnum.ElementShape.Cross, new Size(3, 3), new Point(1, 1));
+            }
+            CvInvoke.Dilate(image, image, elem, new Point(-1, -1), 1, BorderType, new MCvScalar(0.0));
+            Form.AddImage(image);
+        }
     }
 }

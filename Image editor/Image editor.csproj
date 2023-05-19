@@ -77,6 +77,12 @@
     <Compile Include="MedianBlurForm.Designer.cs">
       <DependentUpon>MedianBlurForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MorphologyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MorphologyForm.Designer.cs">
+      <DependentUpon>MorphologyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlotProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MedianBlurForm.resx">
       <DependentUpon>MedianBlurForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MorphologyForm.resx">
+      <DependentUpon>MorphologyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlotProfileForm.resx">
       <DependentUpon>PlotProfileForm.cs</DependentUpon>

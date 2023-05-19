@@ -366,5 +366,19 @@ namespace Image_editor
                 Task.Run(() => form.ShowDialog());
             }
         }
+
+        private void erosionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new MorphologyForm();
+            form.ShowDialog();
+            ImageStorage.MorphologyErode();
+        }
+
+        private void dilationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new MorphologyForm();
+            form.ShowDialog();
+            ImageStorage.MorphologyDilate();
+        }
     }
 }
