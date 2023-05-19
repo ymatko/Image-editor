@@ -380,5 +380,21 @@ namespace Image_editor
             form.ShowDialog();
             ImageStorage.MorphologyDilate();
         }
+
+        private void openingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new MorphologyForm();
+            form.ShowDialog();
+            ImageStorage.ValueImageProcessing2 = 2;
+            ImageStorage.OpenAndClose();
+        }
+
+        private void closingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new MorphologyForm();
+            form.ShowDialog();
+            ImageStorage.ValueImageProcessing2 = 3;
+            ImageStorage.OpenAndClose();
+        }
     }
 }

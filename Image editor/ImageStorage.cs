@@ -287,5 +287,22 @@ namespace Image_editor
             CvInvoke.Dilate(image, image, elem, new Point(-1, -1), 1, BorderType, new MCvScalar(0.0));
             Form.AddImage(image);
         }
+        public static void OpenAndClose()
+        {
+            //ValueImageProcessing2 = 2 / Open
+            //ValueImageProcessing2 = 3 / Close
+            var image = BgrToBinary();
+            Mat elem;
+            if (ValueImageProcessing1 == 1)
+            {
+                elem = CvInvoke.GetStructuringElement(Emgu.CV.CvEnum.ElementShape.Rectangle, new Size(3, 3), new Point(1, 1));
+            }
+            else
+            {
+                elem = CvInvoke.GetStructuringElement(Emgu.CV.CvEnum.ElementShape.Cross, new Size(3, 3), new Point(1, 1));
+            }
+            CvInvoke.MorphologyEx(image, image, (MorphOp)ValueImageProcessing2, elem, new Point(-1, -1), 1, BorderType, new MCvScalar(0.0));
+            Form.AddImage(image);
+        }
     }
 }

@@ -436,12 +436,14 @@
             this.openingToolStripMenuItem.Name = "openingToolStripMenuItem";
             this.openingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openingToolStripMenuItem.Text = "Opening";
+            this.openingToolStripMenuItem.Click += new System.EventHandler(this.openingToolStripMenuItem_Click);
             // 
             // closingToolStripMenuItem
             // 
             this.closingToolStripMenuItem.Name = "closingToolStripMenuItem";
             this.closingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closingToolStripMenuItem.Text = "Closing";
+            this.closingToolStripMenuItem.Click += new System.EventHandler(this.closingToolStripMenuItem_Click);
             // 
             // MainForm
             // 
