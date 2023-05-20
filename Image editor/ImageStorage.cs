@@ -304,5 +304,27 @@ namespace Image_editor
             CvInvoke.MorphologyEx(image, image, (MorphOp)ValueImageProcessing2, elem, new Point(-1, -1), 1, BorderType, new MCvScalar(0.0));
             Form.AddImage(image);
         }
+        public static void Skeletonization()
+        {
+            Image<Gray, Byte> orig = BgrToBinary();
+            Image<Gray, Byte> open = orig.Copy();
+            Image<Gray, Byte> temp = orig.Copy();
+            Image<Gray, Byte> eroded = orig.Copy();
+            Image<Gray, Byte> skel = new Image<Gray, Byte>(orig.Width, orig.Height, new Gray(0));
+            Mat elem = CvInvoke.GetStructuringElement(Emgu.CV.CvEnum.ElementShape.Cross, new Size(3, 3), new Point(1, 1));
+            Emgu.CV.CvEnum.BorderType btype = Emgu.CV.CvEnum.BorderType.Default;
+            while (true)
+            {
+                CvInvoke.MorphologyEx(orig, open, Emgu.CV.CvEnum.MorphOp.Open, elem, new Point(-1, -1), 1, btype, new MCvScalar(0.0));
+                CvInvoke.Subtract(orig, open, temp);
+                CvInvoke.Erode(orig, eroded, elem, new Point(-1, -1), 1, btype, new MCvScalar(0.0));
+                CvInvoke.BitwiseOr(skel, temp, skel);
+                orig = eroded.Copy();
+
+                if (CvInvoke.CountNonZero(orig) == 0)
+                    break;
+            }
+            Form.AddImage(skel);
+        }
     }
 }

@@ -396,5 +396,10 @@ namespace Image_editor
             ImageStorage.ValueImageProcessing2 = 3;
             ImageStorage.OpenAndClose();
         }
+
+        private void scletonizToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageStorage.Skeletonization();
+        }
     }
 }
