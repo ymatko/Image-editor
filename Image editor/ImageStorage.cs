@@ -10,6 +10,7 @@ using ScottPlot.Plottable;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.InteropServices;
@@ -326,5 +327,37 @@ namespace Image_editor
             }
             Form.AddImage(skel);
         }
+        private static ImageCodecInfo GetEncoder(ImageFormat format)
+        {
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
+            foreach(ImageCodecInfo codec in codecs)
+            {
+                if(codec.FormatID == format.Guid)
+                {
+                    return codec;
+                }
+            }
+            return null;
+        }
+        public static void CompressImage(string fileName)
+        {
+            //Bitmap bitmap = new Bitmap(Image.Width, Image.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            //BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, Image.Width, Image.Height), ImageLockMode.WriteOnly, bitmap.PixelFormat);
+            //Marshal.Copy(Image.DataPointer, 0, bitmapData.Scan0, Image.Data.Length);
+            //bitmap.UnlockBits(bitmapData);
+            var image = ConvertToBgr();
+
+            using (Bitmap myBitmap = image.ToBitmap<Bgr, byte>())
+            {
+                ImageCodecInfo jpgEncoder = GetEncoder(ImageFormat.Jpeg);
+
+                var myEncoder = System.Drawing.Imaging.Encoder.Quality;
+                var myEncoderParameters = new EncoderParameters(1);
+                var myEncoderParameter = new EncoderParameter(myEncoder, (int)ValueImageProcessing1);
+                myEncoderParameters.Param[0] = myEncoderParameter;
+                myBitmap.Save(fileName, jpgEncoder, myEncoderParameters);
+            }
+        }
+
     }
 }

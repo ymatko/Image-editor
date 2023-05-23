@@ -42,8 +42,7 @@ namespace Image_editor
            var form = new ImageForm(ImageStorage.Image, $"{ImageStorage.Name}_{number}");
             await Task.Run(() => form.ShowDialog());
         }
-
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveOryginalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
@@ -54,7 +53,7 @@ namespace Image_editor
                     var image = ImageStorage.ConvertToHsv();
                     image.Save(saveFileDialog.FileName);
                 }
-                else if(ImageStorage.Type == 3)
+                else if (ImageStorage.Type == 3)
                 {
                     var image = ImageStorage.ConvertToGray();
                     image.Save(saveFileDialog.FileName);
@@ -71,7 +70,18 @@ namespace Image_editor
                 }
             }
         }
+        private void saveCompressedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif";
+            var form = new SelectValueForm();
+            form.ShowDialog();
+            if (DialogResult.OK == saveFileDialog.ShowDialog())
+            {
+                ImageStorage.CompressImage(saveFileDialog.FileName);
+            }
 
+        }
         private void toMonochromToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var image = ImageStorage.ConvertToGray();
