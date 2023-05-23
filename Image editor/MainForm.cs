@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using Emgu.CV.ML;
 using ScottPlot.Drawing.Colormaps;
 using ScottPlot.Palettes;
+using Emgu.CV.CvEnum;
 
 namespace Image_editor
 {
@@ -410,6 +411,11 @@ namespace Image_editor
         private void scletonizToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ImageStorage.Skeletonization();
+        }
+
+        private void lineDetectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageStorage.LineDetection();
         }
     }
 }

@@ -341,10 +341,6 @@ namespace Image_editor
         }
         public static void CompressImage(string fileName)
         {
-            //Bitmap bitmap = new Bitmap(Image.Width, Image.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-            //BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, Image.Width, Image.Height), ImageLockMode.WriteOnly, bitmap.PixelFormat);
-            //Marshal.Copy(Image.DataPointer, 0, bitmapData.Scan0, Image.Data.Length);
-            //bitmap.UnlockBits(bitmapData);
             var image = ConvertToBgr();
 
             using (Bitmap myBitmap = image.ToBitmap<Bgr, byte>())
@@ -357,6 +353,22 @@ namespace Image_editor
                 myEncoderParameters.Param[0] = myEncoderParameter;
                 myBitmap.Save(fileName, jpgEncoder, myEncoderParameters);
             }
+        }
+        public static void LineDetection()
+        {
+            Image<Gray, byte> image = Image.Convert<Gray, byte>();
+            LineSegment2D[][] lineSegment2D = image.HoughLines(50, 120, 2, Math.PI / 180, 100, 100, 5);
+            for (int i = 0; i < lineSegment2D.Length; i++)
+            {
+                for (int j = 0; j < lineSegment2D[i].Length; j++)
+                {
+                    LineSegment2D lineSegment = lineSegment2D[i][j];
+                    Point point1 = lineSegment.P1;
+                    Point point2 = lineSegment.P2;
+                    CvInvoke.Line(image, point1, point2, new Bgr(Color.Red).MCvScalar, 2);
+                }
+            }
+            Form.AddImage(image);
         }
 
     }

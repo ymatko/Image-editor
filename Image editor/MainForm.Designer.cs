@@ -77,6 +77,7 @@
             this.plotProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lineDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -226,7 +227,8 @@
             this.kernelToolStripMenuItem,
             this.medianFiltrToolStripMenuItem,
             this.twoargumentToolStripMenuItem,
-            this.morfologiaToolStripMenuItem});
+            this.morfologiaToolStripMenuItem,
+            this.lineDetectionToolStripMenuItem});
             this.processToolStripMenuItem.Name = "processToolStripMenuItem";
             this.processToolStripMenuItem.Size = new System.Drawing.Size(65, 21);
             this.processToolStripMenuItem.Text = "Process";
@@ -472,6 +474,13 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif\"";
             // 
+            // lineDetectionToolStripMenuItem
+            // 
+            this.lineDetectionToolStripMenuItem.Name = "lineDetectionToolStripMenuItem";
+            this.lineDetectionToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.lineDetectionToolStripMenuItem.Text = "Line detection";
+            this.lineDetectionToolStripMenuItem.Click += new System.EventHandler(this.lineDetectionToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -540,6 +549,7 @@
         private System.Windows.Forms.ToolStripMenuItem scletonizToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveOryginalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveCompressedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lineDetectionToolStripMenuItem;
     }
 }
 
