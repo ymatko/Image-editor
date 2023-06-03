@@ -371,5 +371,99 @@ namespace Image_editor
             Form.AddImage(image);
         }
 
+        internal static void CalculateHistogram2D()
+        {
+            //var image = ConvertToBgr();
+
+            //var formBlue = new ImageForm(image.Sub(new Bgr(0, 255, 255)), $"{Name}_BlueChannel");
+            //var formRed = new ImageForm(image.Sub(new Bgr(255, 255, 0)), $"{Name}_RedChannel");
+            //var formGreen = new ImageForm(image.Sub(new Bgr(255, 0, 255)), $"{Name}_GreenChannel");
+
+            //_ = Task.Run(() => formRed.ShowDialog());
+            //_ = Task.Run(() => formGreen.ShowDialog());
+            //_ = Task.Run(() => formBlue.ShowDialog());
+            var form = new Hist2DForm();
+            Task.Run(() => form.ShowDialog());
+            
+        }
+
+        internal static void ThresholdBinary()
+        {
+            var form = new SelectValueForm();
+            form.ShowDialog();
+            var threshold = ValueImageProcessing1;
+
+            for (int x = 0; x < Image.Width; x++)
+            {
+                for (int y = 0; y < Image.Height; y++)
+                {
+                    if (Image.Data[y, x, 2] > threshold)
+                        Image.Data[y, x, 2] = 255;
+                    else
+                        Image.Data[y, x, 2] = 0;
+
+                    if (Image.Data[y, x, 1] > threshold)
+                        Image.Data[y, x, 1] = 255;
+                    else
+                        Image.Data[y, x, 1] = 0;
+
+                    if (Image.Data[y, x, 0] > threshold)
+                        Image.Data[y, x, 0] = 255;
+                    else
+                        Image.Data[y, x, 0] = 0;
+                }
+            }
+            Form.AddImage(Image);
+        }
+
+        internal static void ThresholdOtsu()
+        {
+            Image<Gray, Byte> img = Image.Convert<Gray, byte>();
+
+            CvInvoke.Threshold(img, img, 0, 255, Emgu.CV.CvEnum.ThresholdType.Otsu);
+
+            Form.AddImage(img);
+        }
+
+        internal static void ThresholdAdapt()
+        {
+            // value min = 3
+            // value max = 33
+            var form = new SelectValueForm();
+            form.ShowDialog();
+            var threshold = ValueImageProcessing1;
+
+            Image<Gray, Byte> img = Image.Convert<Gray, byte>();
+            var blockSize = (int)ValueImageProcessing1;
+            if (blockSize % 2 == 0)
+                blockSize += 1;
+
+            CvInvoke.AdaptiveThreshold(img, img, 255, Emgu.CV.CvEnum.AdaptiveThresholdType.MeanC, Emgu.CV.CvEnum.ThresholdType.Binary, blockSize, 5);
+
+            Form.AddImage(img);
+        }
+
+        internal static void ThresholdWatershed()
+        {
+            Image<Gray, Byte> gray = Image.Convert<Gray, Byte>();
+            CvInvoke.Threshold(gray, gray, 0, 255, Emgu.CV.CvEnum.ThresholdType.Otsu);
+
+            float[,] matrix = new float[3, 3] {
+              {1, 1, 1 },
+              {1, 1, 1},
+              {1, 1, 1 }
+            };
+            ConvolutionKernelF matrixKernel = new ConvolutionKernelF(matrix);
+
+            CvInvoke.MorphologyEx(gray, gray, Emgu.CV.CvEnum.MorphOp.Open, matrixKernel, new Point(1, 1), 1, Emgu.CV.CvEnum.BorderType.Reflect, new MCvScalar(0.0));
+            CvInvoke.Dilate(gray, gray, matrixKernel, new Point(1, 1), 1, Emgu.CV.CvEnum.BorderType.Reflect, new MCvScalar(0.0));
+
+            Image<Bgra, Byte> dist = Image.Convert<Bgra, Byte>();
+            CvInvoke.DistanceTransform(gray, dist, dist, Emgu.CV.CvEnum.DistType.L2, 5);
+
+            Image.ConvertFrom(dist);
+            Form.AddImage(dist);
+
+        }
     }
 }

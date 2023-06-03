@@ -417,5 +417,30 @@ namespace Image_editor
         {
             ImageStorage.LineDetection();
         }
+
+        private void histogram2DToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageStorage.CalculateHistogram2D();
+        }
+
+        private void thresholdingBinaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageStorage.ThresholdBinary();
+        }
+
+        private void thresholdingAdaptiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageStorage.ThresholdAdapt();
+        }
+
+        private void thresholdingOtsuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageStorage.ThresholdOtsu();
+        }
+
+        private void thresholdingWatershedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageStorage.ThresholdWatershed();
+        }
     }
 }

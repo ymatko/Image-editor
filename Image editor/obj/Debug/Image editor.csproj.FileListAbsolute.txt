@@ -44,3 +44,4 @@ C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.Matri
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.MedianBlurForm.resources
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.BlendingForm.resources
 C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.MorphologyForm.resources
+C:\Users\n246v\Desktop\C#\Image editor\Image editor\obj\Debug\Image_editor.Hist2DForm.resources

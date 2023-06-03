@@ -33,7 +33,9 @@
             // 
             // formsPlot1
             // 
+            this.formsPlot1.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.formsPlot1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formsPlot1.Enabled = false;
             this.formsPlot1.Location = new System.Drawing.Point(0, 0);
             this.formsPlot1.Name = "formsPlot1";
             this.formsPlot1.Size = new System.Drawing.Size(400, 250);
