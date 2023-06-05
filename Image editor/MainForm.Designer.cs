@@ -35,7 +35,6 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveOryginalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveCompressedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toRGBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toMonochromToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +69,11 @@
             this.closingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scletonizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lineDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thresholdingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thresholdingBinaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thresholdingAdaptiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thresholdingOtsuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thresholdingWatershedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramTableGrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,11 +83,6 @@
             this.histogram2DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.thresholdingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thresholdingBinaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thresholdingAdaptiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thresholdingOtsuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thresholdingWatershedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,14 +93,13 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
             this.imageToolStripMenuItem,
             this.processToolStripMenuItem,
             this.analyzeToolStripMenuItem,
             this.infoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(437, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(423, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -152,12 +150,6 @@
             this.saveCompressedToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.saveCompressedToolStripMenuItem.Text = "Save compressed";
             this.saveCompressedToolStripMenuItem.Click += new System.EventHandler(this.saveCompressedToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(42, 21);
-            this.editToolStripMenuItem.Text = "Edit";
             // 
             // imageToolStripMenuItem
             // 
@@ -430,6 +422,44 @@
             this.lineDetectionToolStripMenuItem.Text = "Line detection";
             this.lineDetectionToolStripMenuItem.Click += new System.EventHandler(this.lineDetectionToolStripMenuItem_Click);
             // 
+            // thresholdingToolStripMenuItem
+            // 
+            this.thresholdingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thresholdingBinaryToolStripMenuItem,
+            this.thresholdingAdaptiveToolStripMenuItem,
+            this.thresholdingOtsuToolStripMenuItem,
+            this.thresholdingWatershedToolStripMenuItem});
+            this.thresholdingToolStripMenuItem.Name = "thresholdingToolStripMenuItem";
+            this.thresholdingToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.thresholdingToolStripMenuItem.Text = "Thresholding";
+            // 
+            // thresholdingBinaryToolStripMenuItem
+            // 
+            this.thresholdingBinaryToolStripMenuItem.Name = "thresholdingBinaryToolStripMenuItem";
+            this.thresholdingBinaryToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.thresholdingBinaryToolStripMenuItem.Text = "Thresholding binary";
+            this.thresholdingBinaryToolStripMenuItem.Click += new System.EventHandler(this.thresholdingBinaryToolStripMenuItem_Click);
+            // 
+            // thresholdingAdaptiveToolStripMenuItem
+            // 
+            this.thresholdingAdaptiveToolStripMenuItem.Name = "thresholdingAdaptiveToolStripMenuItem";
+            this.thresholdingAdaptiveToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.thresholdingAdaptiveToolStripMenuItem.Text = "Thresholding adaptive";
+            this.thresholdingAdaptiveToolStripMenuItem.Click += new System.EventHandler(this.thresholdingAdaptiveToolStripMenuItem_Click);
+            // 
+            // thresholdingOtsuToolStripMenuItem
+            // 
+            this.thresholdingOtsuToolStripMenuItem.Name = "thresholdingOtsuToolStripMenuItem";
+            this.thresholdingOtsuToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.thresholdingOtsuToolStripMenuItem.Text = "Thresholding Otsu";
+            this.thresholdingOtsuToolStripMenuItem.Click += new System.EventHandler(this.thresholdingOtsuToolStripMenuItem_Click);
+            // 
+            // thresholdingWatershedToolStripMenuItem
+            // 
+            this.thresholdingWatershedToolStripMenuItem.Name = "thresholdingWatershedToolStripMenuItem";
+            this.thresholdingWatershedToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.thresholdingWatershedToolStripMenuItem.Text = "Thresholding Watershed";
+            // 
             // analyzeToolStripMenuItem
             // 
             this.analyzeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -490,61 +520,23 @@
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
             this.infoToolStripMenuItem.Size = new System.Drawing.Size(42, 21);
             this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"(*.bmp, *.jpg, *.png, *.gif)|*.bmp;*.jpg;*.png;*.gif\"";
             // 
-            // thresholdingToolStripMenuItem
-            // 
-            this.thresholdingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thresholdingBinaryToolStripMenuItem,
-            this.thresholdingAdaptiveToolStripMenuItem,
-            this.thresholdingOtsuToolStripMenuItem,
-            this.thresholdingWatershedToolStripMenuItem});
-            this.thresholdingToolStripMenuItem.Name = "thresholdingToolStripMenuItem";
-            this.thresholdingToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.thresholdingToolStripMenuItem.Text = "Thresholding";
-            // 
-            // thresholdingBinaryToolStripMenuItem
-            // 
-            this.thresholdingBinaryToolStripMenuItem.Name = "thresholdingBinaryToolStripMenuItem";
-            this.thresholdingBinaryToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.thresholdingBinaryToolStripMenuItem.Text = "Thresholding binary";
-            this.thresholdingBinaryToolStripMenuItem.Click += new System.EventHandler(this.thresholdingBinaryToolStripMenuItem_Click);
-            // 
-            // thresholdingAdaptiveToolStripMenuItem
-            // 
-            this.thresholdingAdaptiveToolStripMenuItem.Name = "thresholdingAdaptiveToolStripMenuItem";
-            this.thresholdingAdaptiveToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.thresholdingAdaptiveToolStripMenuItem.Text = "Thresholding adaptive";
-            this.thresholdingAdaptiveToolStripMenuItem.Click += new System.EventHandler(this.thresholdingAdaptiveToolStripMenuItem_Click);
-            // 
-            // thresholdingOtsuToolStripMenuItem
-            // 
-            this.thresholdingOtsuToolStripMenuItem.Name = "thresholdingOtsuToolStripMenuItem";
-            this.thresholdingOtsuToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.thresholdingOtsuToolStripMenuItem.Text = "Thresholding Otsu";
-            this.thresholdingOtsuToolStripMenuItem.Click += new System.EventHandler(this.thresholdingOtsuToolStripMenuItem_Click);
-            // 
-            // thresholdingWatershedToolStripMenuItem
-            // 
-            this.thresholdingWatershedToolStripMenuItem.Name = "thresholdingWatershedToolStripMenuItem";
-            this.thresholdingWatershedToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.thresholdingWatershedToolStripMenuItem.Text = "Thresholding Watershed";
-            this.thresholdingWatershedToolStripMenuItem.Click += new System.EventHandler(this.thresholdingWatershedToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
-            this.ClientSize = new System.Drawing.Size(437, 45);
+            this.ClientSize = new System.Drawing.Size(423, 36);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Form";
+            this.Text = "Image editor";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -558,7 +550,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem processToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem analyzeToolStripMenuItem;

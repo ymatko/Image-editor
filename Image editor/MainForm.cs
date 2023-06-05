@@ -438,9 +438,11 @@ namespace Image_editor
             ImageStorage.ThresholdOtsu();
         }
 
-        private void thresholdingWatershedToolStripMenuItem_Click(object sender, EventArgs e)
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ImageStorage.ThresholdWatershed();
+            var message = "Aplikacja zbiorcza z ćwiczeń laboratoryjnych i projektu\r\nTytuł projektu: Implementacja operacji tworzenia histogramu dwuwymiarowego z obrazu kolorowego bazującego na kanałach oraz rekonstrukcji obrazów z histogramu\r\nAutor: Yevhen Matko\r\nProwadzący: mgr inż. Łukasz Roszkowiak\r\nAlgorytmy Przetwarzania Obrazów 2023\r\nWIT grupa ID: 18472";
+            var title = "Info";
+            MessageBox.Show(message, title);
         }
     }
 }

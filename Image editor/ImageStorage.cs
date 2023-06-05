@@ -442,28 +442,5 @@ namespace Image_editor
 
             Form.AddImage(img);
         }
-
-        internal static void ThresholdWatershed()
-        {
-            Image<Gray, Byte> gray = Image.Convert<Gray, Byte>();
-            CvInvoke.Threshold(gray, gray, 0, 255, Emgu.CV.CvEnum.ThresholdType.Otsu);
-
-            float[,] matrix = new float[3, 3] {
-              {1, 1, 1 },
-              {1, 1, 1},
-              {1, 1, 1 }
-            };
-            ConvolutionKernelF matrixKernel = new ConvolutionKernelF(matrix);
-
-            CvInvoke.MorphologyEx(gray, gray, Emgu.CV.CvEnum.MorphOp.Open, matrixKernel, new Point(1, 1), 1, Emgu.CV.CvEnum.BorderType.Reflect, new MCvScalar(0.0));
-            CvInvoke.Dilate(gray, gray, matrixKernel, new Point(1, 1), 1, Emgu.CV.CvEnum.BorderType.Reflect, new MCvScalar(0.0));
-
-            Image<Bgra, Byte> dist = Image.Convert<Bgra, Byte>();
-            CvInvoke.DistanceTransform(gray, dist, dist, Emgu.CV.CvEnum.DistType.L2, 5);
-
-            Image.ConvertFrom(dist);
-            Form.AddImage(dist);
-
-        }
     }
 }
