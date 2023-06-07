@@ -29,21 +29,7 @@ namespace Image_editor
             {
                 for (int y = 0; y < image1.Height; y++)
                 {
-                    if (image1.Data[y, x, 0] == image2.Data[y, x, 0])
-                    {
-                        int value;
-                        if(dataGridView1.Rows[image1.Data[y, x, 0]].Cells[image2.Data[y, x, 0] + 1].Value == null)
-                        {
-                            value = 0;
-                        }
-                        else
-                        {
-                            value = (int)dataGridView1.Rows[image1.Data[y, x, 0]].Cells[image2.Data[y, x, 0] + 1].Value;
-                        }
-                        dataGridView1.Rows[image1.Data[y, x, 0]].Cells[image2.Data[y, x, 0] + 1].Value = value + 1;
-                    }
-                    else
-                    {
+                    
                         int value;
                         if (dataGridView1.Rows[image1.Data[y, x, 0]].Cells[image2.Data[y, x, 0] + 1].Value == null)
                         {
@@ -53,8 +39,8 @@ namespace Image_editor
                         {
                             value = (int)dataGridView1.Rows[image1.Data[y, x, 0]].Cells[image2.Data[y, x, 0] + 1].Value;
                         }
-                        dataGridView1.Rows[image1.Data[y, x, 0]].Cells[image2.Data[y, x, 0] + 1].Value = value + 1;
-                    }
+                       dataGridView1.Rows[image1.Data[y, x, 0]].Cells[image2.Data[y, x, 0] + 1].Value = value + 1;
+                    
                 }
             }
         }
