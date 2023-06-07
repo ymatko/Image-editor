@@ -5,6 +5,7 @@ using Emgu.CV.ImgHash;
 using Emgu.CV.Reg;
 using Emgu.CV.Structure;
 using Emgu.CV.UI;
+using Emgu.CV.Util;
 using ScottPlot.Drawing.Colormaps;
 using ScottPlot.Plottable;
 using System;
@@ -373,18 +374,15 @@ namespace Image_editor
 
         internal static void CalculateHistogram2D()
         {
-            //var image = ConvertToBgr();
+            Image<Lab, byte> image = ConvertToLab();
+            var channels = image.Split();
+            var form = new Hist2DForm(channels[2], channels[1]);
+            var formB = new ImageForm(channels[2], "B");
+            var formA = new ImageForm(channels[1], "A");
+            _ = Task.Run(() => form.ShowDialog());
+            _ = Task.Run(() => formA.ShowDialog());
+            _ = Task.Run(() => formB.ShowDialog());
 
-            //var formBlue = new ImageForm(image.Sub(new Bgr(0, 255, 255)), $"{Name}_BlueChannel");
-            //var formRed = new ImageForm(image.Sub(new Bgr(255, 255, 0)), $"{Name}_RedChannel");
-            //var formGreen = new ImageForm(image.Sub(new Bgr(255, 0, 255)), $"{Name}_GreenChannel");
-
-            //_ = Task.Run(() => formRed.ShowDialog());
-            //_ = Task.Run(() => formGreen.ShowDialog());
-            //_ = Task.Run(() => formBlue.ShowDialog());
-            var form = new Hist2DForm();
-            Task.Run(() => form.ShowDialog());
-            
         }
 
         internal static void ThresholdBinary()
