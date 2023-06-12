@@ -440,28 +440,28 @@ namespace Image_editor
 
         }
 
-        internal static void CreateImageFromTable(DataGridView dataGridView1, Image<Gray,byte> image1)
+        internal static void CreateImageFromTable(DataGridView dataGridView1, Image<Gray,byte> image)
         {
             Image<Gray, byte> newImg = new Image<Gray, byte>(Image.Width, Image.Height);
 
-            for (int i = 0; i < image1.Height; i++)
+
+            for (int i = 0; i < image.Height; i++)
             {
-                for(int j = 0; j < image1.Width; j++)
+                for(int j = 0; j < image.Width; j++)
                 {
-                    int valueImg = image1.Data[i, j, 0];
-                    for(int k = 1; k < 255; k++)
+                    int valueImg = image.Data[i, j, 0];
+                    for(int cell = 1; cell < 255; cell++)
                     {
                         int valueCell = 0;
-                        if (Convert.ToInt32(dataGridView1.Rows[valueImg].Cells[k].Value) != 0)
+                        if (Convert.ToInt32(dataGridView1.Rows[valueImg].Cells[cell].Value) != 0)
                         {
-                            valueCell = Convert.ToInt32(dataGridView1.Rows[valueImg].Cells[k].Value);
-                            dataGridView1.Rows[valueImg].Cells[k].Value = valueCell - 1;
+                            valueCell = Convert.ToInt32(dataGridView1.Rows[valueImg].Cells[cell].Value);
+                            dataGridView1.Rows[valueImg].Cells[cell].Value = valueCell - 1;
                             newImg.Data[i, j, 0] = 255;
                         }
                     }
                 }
             }
-
             var form = new ImageForm(newImg, "New image");
             _ = Task.Run(() => form.ShowDialog());
         }

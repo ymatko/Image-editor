@@ -23,6 +23,32 @@ namespace Image_editor
         public MainForm()
         {
             InitializeComponent();
+            this.Activated += MainForm_Activated;
+        }
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            if (ImageStorage.Image == null)
+            {
+                this.imageToolStripMenuItem.Enabled = false;
+                this.processToolStripMenuItem.Enabled = false;
+                this.analyzeToolStripMenuItem.Enabled = false;
+                this.saveToolStripMenuItem.Enabled = false;
+                this.duplicateToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                
+                    this.imageToolStripMenuItem.Enabled = true;
+                    this.processToolStripMenuItem.Enabled = true;
+                    this.analyzeToolStripMenuItem.Enabled = true;
+                    this.saveToolStripMenuItem.Enabled = true;
+                    this.duplicateToolStripMenuItem.Enabled = true;
+                
+            }
+            if(ImageStorage.Points.Count < 2)
+                plotProfileToolStripMenuItem.Enabled = false;
+            else
+                plotProfileToolStripMenuItem.Enabled = true;
         }
 
         private async void openToolStripMenuItem_Click(object sender, EventArgs e)
