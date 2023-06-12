@@ -372,19 +372,6 @@ namespace Image_editor
             Form.AddImage(image);
         }
 
-        internal static void CalculateHistogram2D()
-        {
-            Image<Lab, byte> image = ConvertToLab();
-            var channels = image.Split();
-            var form = new Hist2DForm(channels[2], channels[1]);
-            var formB = new ImageForm(channels[2], "B");
-            var formA = new ImageForm(channels[1], "A");
-            _ = Task.Run(() => form.ShowDialog());
-            _ = Task.Run(() => formA.ShowDialog());
-            _ = Task.Run(() => formB.ShowDialog());
-
-        }
-
         internal static void ThresholdBinary()
         {
             var form = new SelectValueForm();
@@ -439,6 +426,44 @@ namespace Image_editor
             CvInvoke.AdaptiveThreshold(img, img, 255, Emgu.CV.CvEnum.AdaptiveThresholdType.MeanC, Emgu.CV.CvEnum.ThresholdType.Binary, blockSize, 5);
 
             Form.AddImage(img);
+        }
+        internal static void CalculateHistogram2D()
+        {
+            Image<Lab, byte> image = ConvertToLab();
+            var channels = image.Split();
+            var form = new Hist2DForm(channels[2], channels[1]);
+            var formB = new ImageForm(channels[2], "B");
+            var formA = new ImageForm(channels[1], "A");
+            _ = Task.Run(() => form.ShowDialog());
+            _ = Task.Run(() => formA.ShowDialog());
+            _ = Task.Run(() => formB.ShowDialog());
+
+        }
+
+        internal static void CreateImageFromTable(DataGridView dataGridView1, Image<Gray,byte> image1)
+        {
+            Image<Gray, byte> newImg = new Image<Gray, byte>(Image.Width, Image.Height);
+
+            for (int i = 0; i < image1.Height; i++)
+            {
+                for(int j = 0; j < image1.Width; j++)
+                {
+                    int valueImg = image1.Data[i, j, 0];
+                    for(int k = 1; k < 255; k++)
+                    {
+                        int valueCell = 0;
+                        if (Convert.ToInt32(dataGridView1.Rows[valueImg].Cells[k].Value) != 0)
+                        {
+                            valueCell = Convert.ToInt32(dataGridView1.Rows[valueImg].Cells[k].Value);
+                            dataGridView1.Rows[valueImg].Cells[k].Value = valueCell - 1;
+                            newImg.Data[i, j, 0] = 255;
+                        }
+                    }
+                }
+            }
+
+            var form = new ImageForm(newImg, "New image");
+            _ = Task.Run(() => form.ShowDialog());
         }
     }
 }
