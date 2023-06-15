@@ -66,6 +66,7 @@
             this.Name = "ImageForm";
             this.Text = "Image";
             this.Activated += new System.EventHandler(this.ImageForm_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ImageForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -75,5 +75,10 @@ namespace Image_editor
             var point = new Point(e.Location.X, e.Location.Y);
             ImageStorage.Points.Add(point);
         }
+
+        private void ImageForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ImageStorage.Image = null;
+        }
     }
 }
