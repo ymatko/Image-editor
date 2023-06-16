@@ -11,6 +11,6 @@
 This is a C# raster graphics editor.
 General-purpose of the project is to manipulate and edit images.
 
-<img align="center" src="Screenshot\Picture1.png"/>
-<img align="center" src="Screenshot\Picture2.png"/>
-<img align="center" src="Screenshot\Picture3.png"/>
+<img align="center" src="docs/Screenshot\Picture1.png"/>
+<img align="center" src="docs/Screenshot\Picture2.png"/>
+<img align="center" src="docs/Screenshot\Picture3.png"/>
